@@ -1,0 +1,36 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+ 
+  box-sizing: border-box;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-style: normal;
+
+}
+
+.bk-green{
+animation: bounceY 4s ease;
+}
+.bk-black{
+
+}
+.bk-img1{
+  animation: bounceInRight 1s ease;
+
+}
+
+@keyframes bounceInRight {
+  0% { transform: translate3d(300%, 0, 0) }
+  58% { transform: translate3d(-27px, 0, 0) }
+  73% { transform: translate3d(12px, 0, 0) }
+  88% { transform: translate3d(-8px, 0, 0) }
+}
+
+.isStud { animation: bounceInBottom .4s ease }
+@keyframes bounceInBottom {
+    0% { transform: translate3d(0, 90%, 0) }
+    58% { transform: translate3d(0, -27px, 0) }
+    73% { transform: translate3d(0, 12px, 0) }
+    88% { transform: translate3d(0, -8px, 0) }
+}

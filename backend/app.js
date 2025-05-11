@@ -14,7 +14,6 @@ dotenv.config({ path: path.resolve(__dirname, '../.env') })
 const app = express()
 
 const server = http.createServer(app);
-const io = new Server(server,{cors:{origin:"*"}});
 
 mongoose.connect(`${process.env.MONGODB_URL}`)
 .then(()=>{

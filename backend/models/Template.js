@@ -4,6 +4,7 @@ const TemplateSchema = new mongoose.Schema({
     name: String,
     thumbnailUrl: String,
     html: String,
+    categorie:String,
     isActive: { type: Boolean, default: true },
   },{timestamps:true});
 

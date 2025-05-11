@@ -11,7 +11,11 @@ import Button from "../ui/components/button";
 import Input from "../ui/components/input";
 
 export default function Admin() {
-  const { user, isLoadding, IsWebsiteAdmin } = useAuthHook();
+  const auth = useAuthHook()
+  const user = auth?.user;
+  const isLoadding = auth?.isLoadding;
+  const IsWebsiteAdmin = auth?.IsWebsiteAdmin;
+  ;
   const { value: isLoading, setValue: setIsLoading } = Boolean({ values: false })
 
   const {
@@ -32,11 +36,11 @@ export default function Admin() {
     const formData = new FormData();
     formData.append("name", data.name);
     formData.append("html", data.html);
+    formData.append("categorie", data.categorie);
     formData.append("thumbnailUrl", data.thumbnailUrl[0]);
    
       console.log(data.thumbnailUrl[0]);
-
-    
+      
     try {
       const res = await axios.post("http://localhost:5000/addtemplate",formData, {
           withCredentials: true
@@ -86,9 +90,14 @@ export default function Admin() {
   const FileContent = watch("thumbnailUrl");
 
   return (
-    <form  onSubmit={handleSubmit(onSubmit)} className="flex flex-col mt-20 gap-10 items-center w-full px-6 max-w-4xl mx-auto ">
+    <form  encType="multipart/form-data"  onSubmit={handleSubmit(onSubmit)} className="flex flex-col mt-20 gap-10 items-center w-full px-6 max-w-4xl mx-auto ">
     <Input register={register} errors={errors} type={"text"} placeholder={"Nom du template"} id={"name"} htmlFor={"name"} className={""} labelName={"Nom du template"} errorMessage={"le nom du template est requis"} required={true} isLoading={isLoading} />
-    
+    <label htmlFor="categorie">categorie</label>
+    <select defaultValue={"moderne"} {...register("categorie", { required: true })}>
+        <option value="classique">classique</option>
+        <option value="moderne">moderne</option>
+      </select>
+      {errors.categorie && <span className="text-red-500"> Ce champ est requis</span>}
     <input className="w-full" type="file" accept="image/*" {...register("thumbnailUrl", { required: true })} />
       {errors.thumbnailUrl && <span className="text-red-500">Image requise</span>}
     

@@ -4,6 +4,5 @@ const { verifyToken } = require("../controllers/Authcontroller")
 const router = express.Router()
 
 
-router.post("/addtemplate",verifyToken,upload.single('thumbnailUrl'),addTemplate);
-
+router.post("/addtemplate", verifyToken, upload.single("thumbnailUrl"),addTemplate);
 module.exports = router

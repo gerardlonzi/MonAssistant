@@ -82,6 +82,7 @@ exports.verifyToken= async(req,res,next)=>{
         console.log("la valeur est " +IsWebsiteAdmin);
         
         res.json({user:decoded,IsWebsiteAdmin})
+        next()
     }
     catch(err){
         return res.status(401).json({message:"token invalide"})

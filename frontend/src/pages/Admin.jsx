@@ -90,7 +90,7 @@ export default function Admin() {
   const FileContent = watch("thumbnailUrl");
 
   return (
-    <form  encType="multipart/form-data"  onSubmit={handleSubmit(onSubmit)} className="flex flex-col mt-20 gap-10 items-center w-full px-6 max-w-4xl mx-auto ">
+    <form  encType="multipart/form-data"  onSubmit={handleSubmit(onSubmit)} className="flex flex-col mt-20 gap-10 items-center w-full px-6  ">
     <Input register={register} errors={errors} type={"text"} placeholder={"Nom du template"} id={"name"} htmlFor={"name"} className={""} labelName={"Nom du template"} errorMessage={"le nom du template est requis"} required={true} isLoading={isLoading} />
     <label htmlFor="categorie">categorie</label>
     <select defaultValue={"moderne"} {...register("categorie", { required: true })}>
@@ -110,10 +110,8 @@ export default function Admin() {
       {errors.html && <span className="text-red-500"> Ce champ est requis</span>}
       {htmlContent && (
         <div className="w-full mt-6">
-          <h2 className="text-lg font-semibold mb-2">Aperçu du modèle :</h2>
-          <div className="border p-4 bg-gray-50">
+          
             <TemplatePreview html={htmlContent} />
-          </div>
         </div>
       )}
       <div className="w-full">

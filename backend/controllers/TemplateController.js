@@ -65,14 +65,15 @@ else{
        await newTemplate.save();
        return;
      });
-    result.end(imageBuffer);
+     await result.end(imageBuffer);
     res.status(201).json({ message: "Template créé avec succès" });
-
+ return
 
   } catch (err) {
     console.error("Server error:", err);
      res.status(501).json({ message: "Une erreur est survenue" });
       next(err);
+      return
   }
 
 }

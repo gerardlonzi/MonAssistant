@@ -82,8 +82,8 @@ export default  function SignUp() {
 
   return (
     <>
-      <Container>
         <Navbar />
+      <Container className='mt-44'>
         <div className='flex items-center justify-center w-full mt-24 '>
           <form onSubmit={handleSubmit(onSubmit)} className='w-96 space-y-5'>
             <Input register={register} errors={errors} type={"username"} placeholder={"username"} id={"username"} htmlFor={"username"} className={""} labelName={"Username"}   required={false} isLoading={isLoading} />

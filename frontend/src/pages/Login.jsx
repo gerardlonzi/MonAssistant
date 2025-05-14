@@ -87,8 +87,8 @@ export default function Login() {
   return (
 
     <>
-      <Container>
-        <Navbar />
+      <Navbar />
+      <Container className='mt-44'>
         <div className='flex items-center justify-center w-full mt-24 '>
           <form onSubmit={handleSubmit(onSubmit)} className='w-96 space-y-5'>
             <Input register={register} errors={errors} type={"email"} placeholder={"Adresse email"} id={"email"} htmlFor={"email"} className={""} labelName={"Email"} errorMessage={"l'email est requis"} required={true} isLoading={isLoading} />

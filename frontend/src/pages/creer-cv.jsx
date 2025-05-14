@@ -1,55 +1,103 @@
 import React from 'react'
 import Container from '../ui/components/container'
 import Navbar from '../ui/components/navbar'
-import { Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import useAuthHook from '../../hooks/authHook'
 import LoaderPage from '../ui/components/loaderPage'
 
 export default function Creer_Cv() {
-  const { isLoadding} = useAuthHook()
+  const { isLoadding, user } = useAuthHook()
   if (isLoadding) return <LoaderPage />
   return (
-    <div className="relative" style={{
-      backgroundImage: 'url(/imgs/bgcreate.png)',
-      backgroundSize:'cover',
-      backgroundPosition:"top",
-      height:"100vh",
-      width:"100%",
+    <>
+   
+      <Navbar user={user} />
+    <Container className='mt-44'>
+      <section className='mt-20 text-[#00275b]'>
+        <h1 className='text-3xl font-semibold text-center mb-14 '>Créez un <span className='text-green-600'>CV gagnant</span>  en quelques minutes</h1>
+        <div className='flex items-center justify-center gap-16 mb-16 text-center relative'>
+          <div className='flex flex-col items-center justify-center'>
+            <div className='flex items-center relative '>
+              <img className='p-5 bg-[#f0fff5] rounded-lg' src="/svgs/rbd-hiw-template-icon.svg" alt="" />
+              <span className='w-10 h-10 bg-[#00275b] absolute -left-5 text-white flex items-center justify-center rounded-full font-bold'>1</span>
+            </div>
+            <p className='text-xl mt-10'>Choisissez votre modèle conçu par des professionnels</p>
+          </div>
+          <div className='flex flex-col items-center justify-center'>
+            <div className='flex items-center relative '>
+              <img className='p-5 bg-[#f0fff5] rounded-lg' src="/svgs/rbd-hiw-example-icon.svg" alt="" />
+              <span className='w-10 h-10 bg-[#00275b] absolute -left-5 text-white flex items-center justify-center rounded-full font-bold'>2</span>
+            </div>
+            <p className='text-xl mt-10'>Ajoutez des exemples pré-écrits à chaque section</p>
+          </div>
+          <div className='flex flex-col items-center justify-center'>
+            <div className='flex items-center relative '>
+              <img className='p-5 bg-[#f0fff5] rounded-lg' src="/svgs/rbd-hiw-download-icon.svg" alt="" />
+              <span className='w-10 h-10 bg-[#00275b] absolute -left-5 text-white flex items-center justify-center rounded-full font-bold'>3</span>
+            </div>
+            <p className='text-xl mt-10'>Téléchargez et commencez à postuler</p>
+          </div>
+          <div className='text-xl text-black rounded-full flex gap-3 absolute -z-10 top-[67px]'>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+          </div>
+        </div>
+        <div className='flex justify-center'> 
+        <Link className='px-24 font-bold text-xl rounded-full hover:bg-green-500  transition-all py-4 bg-green-400' to={"/creer-cv/niveau-de-connaissances"}>commencer</Link>
+        </div>
+      </section>
 
-    }}>
-    <Container>
-           <div className='absolute z-50 top-[50%] left-[50%] shadow-xl rounded-4xl -translate-x-[50%] -translate-y-[50%] bg-white py-10 w-[550px] px-16 text-center'>
-            <img className='m-auto w-52' src="/imgs/logo.png" alt="logo.png" />
-            <p className='my-6  text-4xl font-bold text-[#00275b]'>Un CV parfait en
-            <br /> trois étapes</p>
-            <div className='text-xl text-[#00275b] space-y-5 '>
-              <div className='flex gap-4   items-center'>
-                <div className='size-9 flex items-center justify-center bg-blue-400 text-white font-bold rounded-full'>1</div>
-                <span>Choisissez un de nos modèles</span>
-              </div>
-              <div className='flex gap-4  items-center'>
-                <div className='size-9 flex items-center justify-center bg-blue-400 text-white font-bold rounded-full'>2</div>
-                <span>Utilisez nos contenus pré-rédigés</span>
-              </div>
-              <div className='flex gap-4   items-center'>
-                <div className='size-9 flex items-center justify-center bg-blue-400 text-white font-bold rounded-full'>3</div>
-                <span>Téléchargez et envoyez votre CV</span>
-              </div>
-              
-            </div>
-            <div>
-            <Link className='bg-[#00bf63] transition duration-300 ease-in-out hover:bg-green-700 text-xl font-bold text-white block text-center rounded-full py-3 mt-10' to={"/creer-cv/niveau-de-connaissances"}>Creér un CV</Link>
-            </div>
-            <p className='mt-5 text-xs text-[#00275b]'>
-            En cliquant sur Créer un CV , vous  acceptez nos <br />
-            <Link className='text-[#00bf63] font-bold' to={""}> Conditions d'utilisation</Link> et notre<Link className='text-[#00bf63] font-bold' to={""}> Politique de confidentialité.</Link> 
-            </p>
-           </div>
-           
+
     </Container>
-    <div className='w-full h-[100vh] fixed top-0 bg-[#efeee4] opacity-[0.6]  z-1'></div>
-    </div>
+    </>
 
-  
   )
 }

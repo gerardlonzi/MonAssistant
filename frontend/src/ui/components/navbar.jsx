@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { useLocation } from "react-router-dom"
 import { useMemo, useState } from "react"
 import clsx from "clsx"
-import { Menu } from "lucide-react"
+import { Menu,UserRound,LogIn } from "lucide-react"
 import useAuthHook from "../../../hooks/authHook"
 
 export default function Navbar({user,IsWebsiteAdmin}) {
@@ -17,26 +17,26 @@ export default function Navbar({user,IsWebsiteAdmin}) {
 
 
   return (
-    <nav className="flex justify-between items-center">
+    <nav className="flex px-24 py-5 justify-between items-center fixed top-0 w-full  z-100 bg-[#00275b]">
       <Link to={"/"}> <img src="/imgs/logo.png" alt="" className="w-56" /> </Link>
       <div >
 
         <ul className="flex items-center font-bold gap-5">
           {
             navlinkData.map((el, index) =>
-              <Link className={clsx(el.path == locationTitle ? "text-[#00bf63] p-3 hover:bg-green-100 " : " hover:bg-gray-100 p-3 hover:text-black text-gray-600","flex items-center gap-2    rounded-lg transition-all")} key={index} to={el.path}>
+              <Link className={clsx(el.path == locationTitle ? "text-[#00bf63] p-3 hover:bg-green-100 " : " hover:bg-gray-100 p-3 hover:text-black  text-gray-100","flex items-center gap-2    rounded-lg transition-all")} key={index} to={el.path}>
                 {
                  el.icon? <span>{el.icon}</span> :""
                 }
                 
                 {
-                  el.name && <span className="text-">{el.name}</span>
+                  el.name && <span className="">{el.name}</span>
                 }
               </Link>
             )
           }
           {
-            user ? <Link to={clsx(IsWebsiteAdmin?"/admin":"/dashboard")}><img src="/imgs/avatar.jpeg" alt="logo" className="w-10" /></Link>   : <Link to={"/login"} className="px-5 py-3 bg-[#00bf63] text-white rounded-md hover:bg-transparent hover:outline hover:outline-[#00bf63] hover:text-gray-600 transition-all">Connexion</Link>
+            user ? <Link className="flex items-center gap-1 text-gray-100" to={clsx(IsWebsiteAdmin?"/admin":"/dashboard")}><UserRound />My account</Link>   : <Link to={"/login"} className="flex items-center gap-2 text-gray-100 "><LogIn /> Connexion</Link>
           }
         </ul>
         

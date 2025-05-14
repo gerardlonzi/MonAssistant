@@ -5,8 +5,10 @@ import LoaderPage from '../ui/components/loaderPage'
 
 export default function Letter() {
   return (
-    <Container>
+    <>
         <Navbar/>
+    <Container>
     </Container>
+    </>
   )
 }

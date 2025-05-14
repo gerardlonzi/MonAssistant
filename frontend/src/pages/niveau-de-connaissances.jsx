@@ -32,8 +32,9 @@ export default function Niveau_de_connaissance() {
         return
     }
     return (
-        <Container>
+        <>
             <Navbar user={user} IsWebsiteAdmin={IsWebsiteAdmin} />
+        <Container className='mt-44'>
             <div className='flex items-center flex-col justify-center mt-28 text-[#00275b]'>
                 <p className='text-4xl '> Depuis combien de temps travaillez-vous ?</p>
                 <p className='text-xl mt-5'>Nous vous recommanderons les modèles correspondant le mieux à votre expérience</p>
@@ -54,6 +55,7 @@ export default function Niveau_de_connaissance() {
             </div>
             </div>
         </Container>
+        </>
     )
 }
 
@@ -83,4 +85,5 @@ function Step2({value}) {
             </div>
         </div>
     )
+   
 }

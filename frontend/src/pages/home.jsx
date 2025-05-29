@@ -10,7 +10,7 @@ export default function Home() {
 
   return (
     <>
-      <Container>
+      <Container className="">
   
         <Navbar user={user} IsWebsiteAdmin={IsWebsiteAdmin} />
         <section>

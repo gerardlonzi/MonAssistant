@@ -13,10 +13,11 @@ export const NavlinkData = [
     // }
     // ,
     {
-        name:"Prix",
-        path:"/prix",
+        name:"Home",
+        path:"/",
     }
     ,
+    
     {
         name:"Lettre de motivation",
         path:"/letter",
@@ -27,6 +28,10 @@ export const NavlinkData = [
         name:"Creér un cv",
         path:"/creer-cv",
         icon:<FileText />
+    },
+    {
+        name:"Prix",
+        path:"/prix",
     }
     
     

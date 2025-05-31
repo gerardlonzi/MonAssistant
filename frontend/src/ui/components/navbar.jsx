@@ -18,7 +18,7 @@ export default function Navbar({user,IsWebsiteAdmin}) {
 
   return (
     <nav className="flex px-24 py-5 justify-between items-center fixed top-0 w-full  z-100 bg-[#00275b]">
-      <Link to={"/"}> <img src="/imgs/logo.png" alt="" className="w-56" /> </Link>
+      <Link to={"/"}> <img src="/imgs/logo.png" alt="" className="w-36" /> </Link>
       <div >
 
         <ul className="flex items-center font-bold gap-5">

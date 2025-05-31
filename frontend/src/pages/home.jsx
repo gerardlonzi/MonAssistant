@@ -4,6 +4,7 @@ import Navbar from "../ui/components/navbar";
 import useAuthHook from "../../hooks/authHook";
 import LoaderPage from "../ui/components/loaderPage";
 import LinkComponent from "../ui/components/Link";
+import Keyframes from "../ui/components/animation";
 export default function Home() {
   const { isLoadding, user,IsWebsiteAdmin } = useAuthHook()
   if (isLoadding) return <LoaderPage />
@@ -39,7 +40,7 @@ export default function Home() {
           <div className="relative rounded-br-[20%]  w-[500px] ">
             <img src="/imgs/hero-img.png" className="relative  bk-img1" alt="hero-img" />
             <div className="w-72 bg-green-600 -z-10 rounded-tl-[100px] h-full  absolute bottom-0 right-11 bk-green"></div>
-            <div className=" bg-[#00275b] size-[300px] -z-5 rounded-tl-[100px] absolute right-24 bottom-0 bk-black"></div>
+            <Keyframes />
           </div>
           <div className="w-16 h-16 absolute bg-green-100 -z-10 -top-10 "></div>
         </div>

@@ -6,12 +6,12 @@ import useAuthHook from '../../hooks/authHook'
 import LoaderPage from '../ui/components/loaderPage'
 
 export default function Creer_Cv() {
-  const { isLoadding, user } = useAuthHook()
+  const { isLoadding, user,IsWebsiteAdmin } = useAuthHook()
   if (isLoadding) return <LoaderPage />
   return (
     <>
    
-      <Navbar user={user} />
+      <Navbar user={user} IsWebsiteAdmin={IsWebsiteAdmin}/>
     <Container className='mt-44'>
       <section className='mt-20 text-[#00275b]'>
         <h1 className='text-3xl font-semibold text-center mb-14 '>Créez un <span className='text-green-600'>CV gagnant</span>  en quelques minutes</h1>

@@ -4,7 +4,6 @@ import { useLocation } from "react-router-dom"
 import { useMemo, useState } from "react"
 import clsx from "clsx"
 import { Menu,UserRound,LogIn } from "lucide-react"
-import useAuthHook from "../../../hooks/authHook"
 
 export default function Navbar({user,IsWebsiteAdmin}) {
 

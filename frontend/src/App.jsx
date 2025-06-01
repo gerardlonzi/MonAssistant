@@ -11,6 +11,7 @@ import Dashboard from './pages/dashboard'
 import Admin from './pages/Admin'
 import PageNotFound from './pages/404'
 import Niveau_de_connaissance from './pages/niveau-de-connaissances'
+import ChooseTemplate from './pages/chooseTemplate'
 
 function App() {
     
@@ -28,6 +29,7 @@ function App() {
       <Route path='/dashboard' element ={<Dashboard/>} />
       <Route path='/PageError' element ={<PageNotFound/>} />
       <Route path='/creer-cv/niveau-de-connaissances' element ={<Niveau_de_connaissance/>} />
+      <Route path='/creer-cv/choisir-un-template' element ={<ChooseTemplate/>} />
       <Route path='*' element={<PageNotFound />} />
     </Routes>
     

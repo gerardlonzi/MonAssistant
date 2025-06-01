@@ -77,7 +77,7 @@ export default  function SignUp() {
   console.log(watch("example"))
 
 
-  if(isLoadding) return <LoaderPage />
+
   if(user ) return <Navigate to={"/dashboard"} />
 
   return (

@@ -28,7 +28,7 @@ export default function Niveau_de_connaissance() {
         dispatch(createOrUpdateCv({
             experience: value,
         }))
-        navigate("/creer-cv/choix-modele")
+        navigate("/creer-cv/choisir-un-template")
         return
     }
     return (
@@ -73,7 +73,7 @@ function Step2({value}) {
         dispatch(createOrUpdateCv({
             experience: isStudent? value.IsStudentContent : value.IsNotStudentContent,
         }))
-        navigate("/creer-cv/choix-modele")
+        navigate("/creer-cv/choisir-un-template")
         
     }   
 

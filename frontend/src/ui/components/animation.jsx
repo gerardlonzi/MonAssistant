@@ -2,11 +2,26 @@ import * as motion from "motion/react-client"
 
 export default function Keyframes() {
     return (
+        <>
         <motion.div
             animate={{
-                scale:[1,1,0.8,0.8],
+                scale:[1,1,0.6,0.6],
                 borderRadius: ["0%", "0%", "50%", "50%"],
                 bottom:["0","0","50%","50%"]
+            }}
+            transition={{
+                duration: 1,
+                ease: "easeIn",
+                times: [0, 0.2, 0.5, 0.8],
+                repeat: Infinity,
+                repeatDelay: 5,
+                
+            }}
+            style={box}
+        />
+        <motion.div
+            animate={{
+                height:[500,500,400,400]
             }}
             transition={{
                 duration: 1,
@@ -16,8 +31,9 @@ export default function Keyframes() {
                 repeatDelay: 5,
                 
             }}
-            style={box}
+            style={box2}
         />
+        </>
     )
 }
 
@@ -31,6 +47,17 @@ const box = {
     position: "absolute",
     right:110,
     bottom:0
+
+}
+const box2 = {
+    width: 320,
+    height: 500,
+    backgroundColor: "#00a63e",
+    borderRadius: 50,
+    zIndex:-7,
+    position: "absolute",
+    bottom:0,
+    left:0
     
 }
-{/* <div className=" bg-[#00275b] size-[300px] -z-5 rounded-tl-[100px] absolute right-24 bottom-0 bk-black"></div> */}
+{/* <div className="w-72 bg-green-600 -z-10 rounded-tl-[100px] h-full  absolute bottom-0 right-11 bk-green"></div> */}

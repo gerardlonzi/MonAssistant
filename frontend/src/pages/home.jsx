@@ -12,36 +12,35 @@ export default function Home() {
   return (
     <>
         <Navbar user={user} IsWebsiteAdmin={IsWebsiteAdmin} />
-      <Container className="mt-44">
+      <Container className="mt-36 md:mt-44">
         <section>
-        <div className="flex items-center gap-24 mt-28 relative">
+        <div className="flex flex-col  md:flex-row items-center gap-24 mt-28 relative">
           <div className="">
-            <h1 className="text-6xl font-bold leading-18">Le CV qui décroche le poste...  facilement</h1>
+            <h1 className="md:text-6xl text-4xl text-center font-bold leading-14 md:leading-18">Le CV qui décroche le poste...  facilement</h1>
             <div className='text-xl text-[#00275b] space-y-4 mt-12'>
-              <div className='flex gap-4   items-center'>
-                <div className='size-8 flex items-center justify-center bg-green-600 text-white font-bold rounded-full'>1</div>
-                <span>Sélectionnez un CV parmi tous nos modèles professionnels</span>
+              <div className='flex gap-2 sm:gap-4   items-center'>
+                <div className='w-8 h-8 p-4  flex items-center justify-center bg-green-600 text-white font-bold rounded-full'>1</div>
+                <span className="block">Sélectionnez un CV parmi tous nos modèles professionnels</span>
               </div>
-              <div className='flex gap-4  items-center'>
-                <div className='size-8 flex items-center justify-center bg-green-600 text-white font-bold rounded-full'>2</div>
+              <div className='flex gap-2 sm:gap-4  items-center'>
+                <div className='size-8 p-4 flex items-center justify-center bg-green-600 text-white font-bold rounded-full'>2</div>
                 <span>Rédigez votre CV grâce à notre outil d’aide au contenu</span>
               </div>
-              <div className='flex gap-4   items-center'>
-                <div className='size-8 flex items-center justify-center bg-green-600 text-white font-bold rounded-full'>3</div>
+              <div className='flex gap-2 sm:gap-4   items-center'>
+                <div className='size-8 p-4 flex items-center justify-center bg-green-600 text-white font-bold rounded-full'>3</div>
                 <span>Téléchargez et envoyez votre CV en ligne</span>
               </div>
             </div>
-            <div className="mt-14 text-xl space-x-5">
-             <LinkComponent content={"créer un cv"} variant={"secondary"} to={"/creer-cv"} />
+            <div className="mt-14 text-xl flex  space-x-5">
+             <LinkComponent  content={"créer un cv"} variant={"secondary"} to={"/creer-cv"} />
              <LinkComponent content={"Améliorer mon cv"} variant={"primary"} to={"/creer-cv"} />
              
             </div>
           </div>
-          <div className="relative rounded-br-[20%]  w-[500px] ">
+          <div className="relative rounded-br-[20%] hidden sm:block  w-[500px] ">
             <img src="/imgs/hero-img.png" className="relative  bk-img1" alt="hero-img" />
             <Keyframes />
           </div>
-          <div className="w-16 h-16 absolute bg-green-100 -z-10 -top-10 "></div>
         </div>
         </section>
         <p className="mt-44"></p>

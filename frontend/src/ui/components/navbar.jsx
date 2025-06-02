@@ -3,10 +3,17 @@ import { Link } from "react-router-dom"
 import { useLocation } from "react-router-dom"
 import { useMemo, useState } from "react"
 import clsx from "clsx"
-import { Menu,UserRound,LogIn } from "lucide-react"
+import { Menu, UserRound, LogIn, X } from "lucide-react"
+import { motion, AnimatePresence } from 'framer-motion'
 
-export default function Navbar({user,IsWebsiteAdmin}) {
+export default function Navbar({ user, IsWebsiteAdmin }) {
+  const [isOpen, setIsOpen] = useState(false);
 
+  const menuVariants = {
+    hidden: { opacity: 0, x: '100%' },
+    visible: { opacity: 1, x: 0 },
+    exit: { opacity: 0, x: '100%' },
+  };
   const [navlinkData, setNavlinkData] = useState(NavlinkData)
   const location = useLocation()
   const locationTitle = useMemo(() => {
@@ -16,30 +23,75 @@ export default function Navbar({user,IsWebsiteAdmin}) {
 
 
   return (
-    <nav className="flex px-24 py-5 justify-between items-center fixed top-0 w-full  z-100 bg-[#00275b]">
-      <Link to={"/"}> <img src="/imgs/logo.png" alt="" className="w-36" /> </Link>
-      <div >
+    <header className="flex px-2 sm:px-10 xl:px-24 py-5 justify-between items-center fixed top-0 w-full  z-100 bg-[#00275b]">
+      <nav className="flex justify-between items-center w-full ">
+        <Link to={"/"}> <img src="/imgs/logo.png" alt="" className="w-36" /> </Link>
+        <div className="flex items-center">
 
-        <ul className="flex items-center font-bold gap-5">
-          {
-            navlinkData.map((el, index) =>
-              <Link className={clsx(el.path == locationTitle ? "text-[#00bf63] p-3 hover:bg-green-100 " : " hover:bg-gray-100 p-3 hover:text-black  text-gray-100","flex items-center gap-2    rounded-lg transition-all")} key={index} to={el.path}>
+          <ul className=" flex items-center font-bold gap-5 hidden lg:flex">
+            {
+              navlinkData.map((el, index) =>
+                <Link className={clsx(el.path == locationTitle ? "text-[#00bf63] p-3 hover:bg-green-100 " : " hover:bg-gray-100 p-3 hover:text-black  text-gray-100", "flex items-center gap-2    rounded-lg transition-all")} key={index} to={el.path}>
+                  {
+                    el.icon ? <span>{el.icon}</span> : ""
+                  }
+
+                  {
+                    el.name && <span className="">{el.name}</span>
+                  }
+                </Link>
+              )
+            }
+            {
+              user ? <Link className="flex items-center gap-1 text-gray-100" to={clsx(IsWebsiteAdmin ? "/admin" : "/dashboard")}><UserRound />My account</Link> : <Link to={"/login"} className="flex items-center gap-2 text-gray-100 "><LogIn /> Connexion</Link>
+            }
+          </ul>
+          <button className="lg:hidden text-green-600 p-1 border-green-600 border rounded-sm" onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+      </nav>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            key="mobile-menu"
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            variants={menuVariants}
+            transition={{ duration: 0.4 }}
+            className="lg:hidden fixed top-0 right-0 h-full w-3/4 bg-white shadow-lg z-40 p-6"
+          >
+            <div>
+              <div className="flex justify-end mb-5">
+                <button className="lg:hidden flex justify-center  text-green-600 p-1 " onClick={() => setIsOpen(!isOpen)}>
+                  {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                </button>
+
+              </div>
+              <ul className=" font-bold gap-3 flex flex-col justify-end">
                 {
-                 el.icon? <span>{el.icon}</span> :""
+                  navlinkData.map((el, index) =>
+                    <Link className={clsx(el.path == locationTitle ? "text-[#00bf63] p-3 bg-green-100 " : " hover:bg-gray-200 p-3 hover:text-black  text-gray-500", "flex items-center gap-2    rounded-lg transition-all")} key={index} to={el.path}>
+                      {
+                        el.icon ? <span>{el.icon}</span> : ""
+                      }
+
+                      {
+                        el.name && <span className="">{el.name}</span>
+                      }
+                    </Link>
+                  )
                 }
-                
                 {
-                  el.name && <span className="">{el.name}</span>
+                  user ? <Link className="flex items-center gap-1 text-gray-500 p-3" to={clsx(IsWebsiteAdmin ? "/admin" : "/dashboard")}><UserRound />My account</Link> : <Link to={"/login"} className="flex items-center gap-2 text-gray-500 p-3"><LogIn /> Connexion</Link>
                 }
-              </Link>
-            )
-          }
-          {
-            user ? <Link className="flex items-center gap-1 text-gray-100" to={clsx(IsWebsiteAdmin?"/admin":"/dashboard")}><UserRound />My account</Link>   : <Link to={"/login"} className="flex items-center gap-2 text-gray-100 "><LogIn /> Connexion</Link>
-          }
-        </ul>
-        
-      </div>
-    </nav>
+              </ul>
+
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </header>
   )
 }

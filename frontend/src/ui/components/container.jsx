@@ -1,6 +1,6 @@
 export default function Container({children,className=""}) {
   return (
-    <div className={`px-24  ${className}`}>
+    <div className={`xl:px-24 px-3 sm:px-10 ${className}`}>
         {
             children
         } 

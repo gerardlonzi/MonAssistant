@@ -1,4 +1,4 @@
-import { BriefcaseBusiness, CircleUser, FileText, Heart,FileUser,FileChartColumn } from "lucide-react"
+import { BriefcaseBusiness, CircleUser, FileText, Heart,FileUser,FileChartColumn,Gem } from "lucide-react"
 
 export const NavlinkData = [
     // {
@@ -30,8 +30,9 @@ export const NavlinkData = [
         icon:<FileText />
     },
     {
-        name:"Prix",
-        path:"/prix",
+        name:"Subscription",
+        path:"/subscription",
+        icon:<Gem />
     }
     
     

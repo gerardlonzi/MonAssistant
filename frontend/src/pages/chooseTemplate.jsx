@@ -6,9 +6,10 @@ import { colorThemes } from "../data/ColorTemplateData";
 import useAuthHook from '../../hooks/authHook'
 import LoaderPage from '../ui/components/loaderPage'
 import { Check } from "lucide-react";
-import ColorPicker from '@rc-component/color-picker';
-import '@rc-component/color-picker/assets/index.css';
 const tabs = ["recommandè", "Nouveau", "Tout"];
+import { cvData } from '../data/cvInfos'
+import { CvTemplate } from '../data/cvTemplate'
+import useBoolean from '../../hooks/boolean'
 
 export default function ChooseTemplate() {
   const [selected, setSelected] = useState(tabs[0]);
@@ -17,6 +18,9 @@ export default function ChooseTemplate() {
   const [iDPalette, SetIdPalette] = useState(null);
   const [isClickColor, SetIsClickColor] = useState(false);
   const { isLoadding, user, IsWebsiteAdmin } = useAuthHook()
+  const {value:usePicture,setValue:setUsePicture}= useBoolean({values:true})
+const [primaryColor,setPrimaryColor] = useState(null)
+const [myCvData,setMyData] = useState(cvData)
 
   const handleColorChange = (e) => {
     const color = e.target.value;
@@ -34,7 +38,7 @@ export default function ChooseTemplate() {
           <h1 className="text-[#00275b] text-3xl sm:text-4xl font-bold">Choisissez un modèle pour votre CV</h1>
           <p className="text-gray-600 text-lg mt-2">Vous pouvez toujours changer d'avis et essayer un autre modèle plus tard</p>
         </div>
-        <section className="flex sticky bg-white pt-8 sm:pt-0  top-16  flex-col flex-col-reverse sm:flex-row justify-center items-center mt-8 sm:gap-24 gap-4">
+        <section className="flex sticky bg-white pt-8 pb-10 sm:pt-0  top-16  flex-col flex-col-reverse md:flex-row justify-center items-center mt-8 md:gap-10 lg:gap-16 gap-4">
           <div className="flex  gap-2 justify-center wrap-anywhere  relative">
             {tabs.map((tab) => (
               <>
@@ -49,7 +53,7 @@ export default function ChooseTemplate() {
             ))}
           </div>
 
-          <div className="flex justify-center gap-4 ">
+          <div className="flex flex-wrap justify-center gap-4 ">
             <div
             onClick={() => {
               setActiveColor(null)
@@ -115,83 +119,19 @@ export default function ChooseTemplate() {
             ))}
           </div>
         </section>
-        <div style={{
-          padding: "100px",
-          backgroundColor: hoverPalette ? hoverPalette : activeColor
+        </Container>
+        <Container className="bg-[#b2e9ff24] py-10" >
 
-        }}>
-
+        <section >
+        <div className="grid grid-cols-5">
+          <div className="rounded-xl overflow-hidden shadow-md w-[17rem]">
+          <CvTemplate myCvData={myCvData} activeColor={activeColor} hoverPalette={hoverPalette} usePicture={usePicture} size={'md'}/>
+          </div>
+          
         </div>
-        {/* <ColorPicker onClick={()=>handleColorChange} /> */}
-        <div className="flex">
-    <div className="w-1/3 bg-[#E5F1F9] p-4 space-y-6">
-      <div>
-        <h3 className="text-lg font-semibold border-b border-[#3497D3] pb-1 mb-2">À PROPOS</h3>
-        <p>
-          Passionné par les technologies web, je conçois des sites et applications modernes,
-          performants et responsives. Curieux, rigoureux et toujours en quête d’apprentissage.
-        </p>
-      </div>
-
-      <div>
-        <h3 className="text-lg font-semibold border-b border-[#3497D3] pb-1 mb-2">COMPÉTENCES</h3>
-        <ul className="list-disc list-inside">
-          <li>HTML / CSS / JavaScript</li>
-          <li>React / Node.js</li>
-          <li>MongoDB / Express.js</li>
-          <li>Git & GitHub</li>
-          <li>Responsive design</li>
-        </ul>
-      </div>
-
-      <div>
-        <h3 className="text-lg font-semibold border-b border-[#3497D3] pb-1 mb-2">CONTACT</h3>
-        <p>Email: jeanpaul@example.com</p>
-        <p>Téléphone: +33 6 00 00 00 00</p>
-        <p>Adresse: Paris, France</p>
-      </div>
-    </div>
-
-    <div className="w-2/3 p-6 space-y-6">
-      <div>
-        <h3 className="text-xl font-bold border-b border-[#3497D3] pb-1 mb-4">EXPÉRIENCE PROFESSIONNELLE</h3>
-
-        <div className="mb-4">
-          <h4 className="font-semibold">Développeur Frontend – WebAgency</h4>
-          <p className="text-sm text-gray-600">Janvier 2022 – Présent</p>
-          <ul className="list-disc list-inside mt-1">
-            <li>Développement d’interfaces web réactives avec React.</li>
-            <li>Intégration des maquettes Figma et gestion des bugs UI.</li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 className="font-semibold">Développeur Fullstack – StartupTech</h4>
-          <p className="text-sm text-gray-600">Juin 2020 – Décembre 2021</p>
-          <ul className="list-disc list-inside mt-1">
-            <li>Création d’API REST avec Node.js & MongoDB.</li>
-            <li>Déploiement sur Heroku et automatisation CI/CD.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div>
-        <h3 className="text-xl font-bold border-b border-[#3497D3] pb-1 mb-4">FORMATION</h3>
-
-        <div className="mb-3">
-          <h4 className="font-semibold">Licence Informatique – Université de Lyon</h4>
-          <p className="text-sm text-gray-600">2017 – 2020</p>
-        </div>
-
-        <div>
-          <h4 className="font-semibold">BTS SIO – Lycée Technique</h4>
-          <p className="text-sm text-gray-600">2015 – 2017</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-      </Container>
+        </section>
+        </Container>
+    
     </>
   );
 };

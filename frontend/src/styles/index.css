@@ -37,3 +37,9 @@ animation: bounceY 4s ease;
     88% { transform: translate3d(0, -8px, 0) }
 }
 
+.text-secondary{
+  color: #00275b;
+}
+.bg-secondary{
+  background: #00275b;
+}

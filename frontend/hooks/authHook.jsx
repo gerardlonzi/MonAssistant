@@ -15,6 +15,7 @@ export default function useAuthHook(){
              return 
         })
         .catch(err=>{
+          
             return setUser(null)
         })
         .finally(()=>{

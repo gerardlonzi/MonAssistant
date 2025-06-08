@@ -16,7 +16,7 @@
         sectionGap: 'mt-4',
       },
       md: {
-        root: 'w-[17rem] h-[23rem] overflow-hidden',
+        root: 'w-[17rem] h-[21rem] overflow-hidden',
         text: 'text-[5px]',
         text_title:"text-[6px]",
         text_name:"text-[8px]",
@@ -46,11 +46,12 @@
           className={`${styles.padding} ${styles.text} text-white w-1/3 bg-[#1e2939] ${styleMap.leftPanel || ''}`}
         >
           {usePicture && (
-            <div className={`${styles.image} m-auto `}>
+            <div className={`${styles.image} m-auto  `}>
               <img
-                className="rounded-full border-2 border-white w-full h-full object-cover"
+                className="rounded-full bg-gray-300 border-2 border-white w-full h-full object-cover"
                 src={myCvData.img}
                 alt="profile"
+                loading="lazy"
               />
             </div>
           )}

@@ -18,21 +18,21 @@ export default function Creer_Cv() {
         <div className='flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-16 mb-6 sm:mb-16 text-center relative'>
           <div className='flex flex-col items-center justify-center'>
             <div className='flex items-center relative '>
-              <img className='p-5 bg-[#f0fff5] rounded-lg w-24 sm:w-full' src="/svgs/rbd-hiw-template-icon.svg" alt="" />
+              <img className='p-5 bg-[#f0fff5] rounded-lg w-24 sm:w-full' src="/svgs/rbd-hiw-template-icon.svg" alt="cHOISIR_UN_MODELES" />
               <span className='sm:w-10 sm:h-10 h-7 w-7 -left-[1rem] sm:-left-5 bg-[#00275b] absolute -left-5 text-white flex items-center justify-center rounded-full font-bold'>1</span>
             </div>
             <p className='text-xl mt-4 sm:mt-10'>Choisissez votre modèle conçu par des professionnels</p>
           </div>
           <div className='flex flex-col items-center justify-center'>
             <div className='flex items-center relative '>
-              <img className='p-5 bg-[#f0fff5] rounded-lg w-24 sm:w-full' src="/svgs/rbd-hiw-example-icon.svg" alt="" />
+              <img className='p-5 bg-[#f0fff5] rounded-lg w-24 sm:w-full' src="/svgs/rbd-hiw-example-icon.svg" alt="AJOUTER_UN_MODELE_PRECIS" />
               <span className='sm:w-10 sm:h-10 h-7 w-7 -left-[1rem] sm:-left-5 bg-[#00275b] absolute  text-white flex items-center justify-center rounded-full font-bold'>2</span>
             </div>
             <p className='text-xl mt-4 sm:mt-10'>Ajoutez des exemples pré-écrits à chaque section</p>
           </div>
           <div className='flex flex-col items-center justify-center'>
             <div className='flex items-center relative '>
-              <img className='p-5 bg-[#f0fff5] rounded-lg w-24 sm:w-full' src="/svgs/rbd-hiw-download-icon.svg" alt="" />
+              <img className='p-5 bg-[#f0fff5] rounded-lg w-24 sm:w-full' src="/svgs/rbd-hiw-download-icon.svg" alt="telecharger_et_postuler_icon" />
               <span className='sm:w-10 sm:h-10 h-7 w-7 -left-[1rem] sm:-left-5 bg-[#00275b] absolute  text-white flex items-center justify-center rounded-full font-bold'>3</span>
             </div>
             <p className='text-xl mt-4 sm:mt-10'>Téléchargez et commencez à postuler</p>

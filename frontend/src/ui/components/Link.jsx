@@ -7,10 +7,10 @@ export default function LinkComponent({variant,to,content}) {
     switch(variant){
         case "primary":
             link=(<Link to={to}
-            class="relative inline-flex items-center justify-center w-full px-2 md:px-20 rounded-lg py-3 md:py-4 text-[#00275b] overflow-hidden tracking-tighter   outline outline-[#00275b] hover:text-white  group"
+            class="relative inline-flex items-center justify-center w-full md:w-72 px-2 md:px-20 rounded-lg py-3 md:py-4 text-white sm:text-[#00275b] overflow-hidden tracking-tighter   outline outline-[#00275b] hover:text-white  group"
           >
             <span
-              class="absolute w-0 h-0 transition-all duration-500 ease-out bg-[#00275b]  rounded-full group-hover:w-72 group-hover:h-56"
+              class="absolute w-0 h-0 transition-all duration-500 ease-out bg-[#00275b]  rounded-full group-hover:w-96 group-hover:h-56"
             ></span>
             <span class="absolute bottom-0 left-0 h-full -ml-2">
               
@@ -49,10 +49,10 @@ export default function LinkComponent({variant,to,content}) {
           break;
         case "secondary":
             link =  (<Link to={to}
-            class="relative inline-flex items-center w-full justify-center px-2 md:px-20 rounded-lg py-3 md:py-4 overflow-hidden tracking-tighter bg-green-600 text-white   group"
+            class="relative inline-flex items-center w-full md:w-72 justify-center px-2 md:px-20 rounded-lg py-3 md:py-4 overflow-hidden tracking-tighter bg-green-600 text-white   group"
           >
             <span
-              class="absolute w-0 h-0 transition-all duration-500 ease-out bg-green-700  rounded-full group-hover:w-72 group-hover:h-56"
+              class="absolute w-0 h-0 transition-all duration-500 ease-out bg-green-700  rounded-full group-hover:w-96 group-hover:h-56"
             ></span>
             <span class="absolute bottom-0 left-0 h-full -ml-2">
               

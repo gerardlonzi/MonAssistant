@@ -38,7 +38,7 @@ const [myCvData,setMyData] = useState(cvData)
           <h1 className="text-[#00275b] text-3xl sm:text-4xl font-bold">Choisissez un modèle pour votre CV</h1>
           <p className="text-gray-600 text-lg mt-2">Vous pouvez toujours changer d'avis et essayer un autre modèle plus tard</p>
         </div>
-        <section className="flex sticky bg-white pt-8 pb-10 sm:pt-0  top-16  flex-col flex-col-reverse md:flex-row justify-center items-center mt-8 md:gap-10 lg:gap-16 gap-4">
+        <section className="flex   bg-white pt-8 pb-10 sm:pt-0  top-16  flex-col flex-col-reverse lg:flex-row justify-center items-center mt-8 md:gap-10 lg:gap-16 gap-4">
           <div className="flex  gap-2 justify-center wrap-anywhere  relative">
             {tabs.map((tab) => (
               <>
@@ -53,7 +53,7 @@ const [myCvData,setMyData] = useState(cvData)
             ))}
           </div>
 
-          <div className="flex flex-wrap justify-center gap-4 ">
+          <div className="flex flex-wrap justify-center gap-4 fixed pt-5 py-9 md:py-0 bg-[#001230] md:bg-transparent left-0 right-0 bottom-0 md:static">
             <div
             onClick={() => {
               setActiveColor(null)
@@ -122,8 +122,18 @@ const [myCvData,setMyData] = useState(cvData)
         </Container>
         <Container className="bg-[#b2e9ff24] py-10" >
 
-        <section >
-        <div className="grid grid-cols-5">
+        <section>
+        
+        <div className="flex justify-center items-center gap-y-10 flex-col m-auto sm:grid xl:grid-cols-4 sm:grid-cols-2 lg:grid-cols-3 ">
+          <div className="rounded-xl overflow-hidden shadow-md w-[17rem]">
+          <CvTemplate myCvData={myCvData} activeColor={activeColor} hoverPalette={hoverPalette} usePicture={usePicture} size={'md'}/>
+          </div>
+          <div className="rounded-xl overflow-hidden shadow-md w-[17rem]">
+          <CvTemplate myCvData={myCvData} activeColor={activeColor} hoverPalette={hoverPalette} usePicture={usePicture} size={'md'}/>
+          </div>
+          <div className="rounded-xl overflow-hidden shadow-md w-[17rem]">
+          <CvTemplate myCvData={myCvData} activeColor={activeColor} hoverPalette={hoverPalette} usePicture={usePicture} size={'md'}/>
+          </div>
           <div className="rounded-xl overflow-hidden shadow-md w-[17rem]">
           <CvTemplate myCvData={myCvData} activeColor={activeColor} hoverPalette={hoverPalette} usePicture={usePicture} size={'md'}/>
           </div>

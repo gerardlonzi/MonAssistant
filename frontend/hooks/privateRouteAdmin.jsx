@@ -4,14 +4,11 @@ import { Navigate } from 'react-router-dom';
 import LoaderPage from '../src/ui/components/loaderPage';
 
 
-const PrivateRoute = ({ children }) => {
+export const PrivateRouteAdmin = ({ children }) => {
   const {isLoadding,IsWebsiteAdmin,user} = useContext(AuthContext);
 
   if (isLoadding) return <LoaderPage /> ;
+  
+  return  user && IsWebsiteAdmin === true  ? children : <Navigate to={"/login"} />
 
-  if (!user || (user && IsWebsiteAdmin === true) ) return <Navigate to={"/PageError"} />;
-
-  return user ? children : <Navigate to="/login" />;
-};
-
-
+}

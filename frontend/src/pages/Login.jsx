@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import Container from '../ui/components/container'
 import Navbar from '../ui/components/navbar'
 import { useForm } from "react-hook-form"
@@ -8,14 +8,14 @@ import Button from '../ui/components/button'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import { Navigate } from 'react-router-dom'
-import useAuthHook from '../../hooks/authHook'
+import { AuthContext } from "../../hooks/authHook";
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import LoaderPage from '../ui/components/loaderPage'
 
 export default function Login() {
   const navigate = useNavigate()
-  const { user, isLoadding,IsWebsiteAdmin} = useAuthHook()
+  const { user, isLoadding, IsWebsiteAdmin } = useContext(AuthContext);  
   const { value: isLoading, setValue: setIsLoading } = Boolean({ values: false })
   const {
     register,

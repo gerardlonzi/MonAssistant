@@ -12,15 +12,15 @@ import { AuthProvider } from '../hooks/authHook.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
     <AuthProvider>
+    <BrowserRouter>
     <Provider store={store}>
     <VisitorContextId>
       <App />
       </VisitorContextId>
     </Provider>
       <ToastContainer />
-      </AuthProvider>
     </BrowserRouter>
+      </AuthProvider>
   </StrictMode>,
 )

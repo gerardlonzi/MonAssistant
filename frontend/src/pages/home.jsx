@@ -1,12 +1,15 @@
 import { Search } from "lucide-react";
+import { useContext } from "react";
 import Container from "../ui/components/container";
 import Navbar from "../ui/components/navbar";
-import useAuthHook from "../../hooks/authHook";
 import LoaderPage from "../ui/components/loaderPage";
 import LinkComponent from "../ui/components/Link";
 import Keyframes from "../ui/components/animation";
+import { AuthContext } from "../../hooks/authHook";
+
+
 export default function Home() {
-  const { isLoadding, user,IsWebsiteAdmin } = useAuthHook()
+  const { user, isLoadding, IsWebsiteAdmin } = useContext(AuthContext);  
   if (isLoadding) return <LoaderPage />
 
   return (

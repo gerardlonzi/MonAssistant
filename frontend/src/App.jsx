@@ -12,6 +12,8 @@ import Admin from './pages/Admin'
 import PageNotFound from './pages/404'
 import Niveau_de_connaissance from './pages/niveau-de-connaissances'
 import ChooseTemplate from './pages/chooseTemplate'
+import { PrivateRouteAdmin } from '../hooks/privateRouteAdmin'
+import {PrivateRouteUser} from '../hooks/privateRouteUser'
 
 function App() {
     
@@ -24,9 +26,16 @@ function App() {
       <Route path='/signup' element ={<SignUp/>} />
       <Route path='/login' element ={<Login/>} />
       <Route path='/letter' element ={<Letter/>} />
-      <Route path='/admin' element ={<Admin/>} />
+      <Route path='/admin' element ={
+        <PrivateRouteAdmin>
+        <Admin/>
+      </PrivateRouteAdmin> 
+    } />
+      <Route path='/dashboard' element ={
+        <PrivateRouteUser>
+          <Dashboard/>
+        </PrivateRouteUser>} />
       <Route path='/forget-password' element ={<ForgetPassword/>} />
-      <Route path='/dashboard' element ={<Dashboard/>} />
       <Route path='/PageError' element ={<PageNotFound/>} />
       <Route path='/creer-cv/niveau-de-connaissances' element ={<Niveau_de_connaissance/>} />
       <Route path='/creer-cv/choisir-un-template' element ={<ChooseTemplate/>} />

@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState,useContext } from 'react'
 import { niveau_de_connaissance } from '../data/niveau-de-connaissanceData'
 import Container from '../ui/components/container'
 import Navbar from '../ui/components/navbar'
-import useAuthHook from '../../hooks/authHook'
+import { AuthContext } from "../../hooks/authHook";
 import LoaderPage from '../ui/components/loaderPage'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux"
@@ -14,7 +14,7 @@ export default function Niveau_de_connaissance() {
     const navigate = useNavigate()
     const dispatch= useDispatch()
     const currentCv = useSelector(state => state.cv.currentCv)
-    const { user, isLoadding,IsWebsiteAdmin } = useAuthHook()
+  const { user, isLoadding, IsWebsiteAdmin } = useContext(AuthContext);  
     let [selectContent, setselectContent] = useState(null)
 
 

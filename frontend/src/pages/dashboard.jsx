@@ -1,15 +1,11 @@
-import React from "react";
-import useAuthHook from "../../hooks/authHook";
+import React,{useContext} from "react";
+import { AuthContext } from "../../hooks/authHook";
 import { Navigate } from "react-router-dom";
 import LoaderPage from "../ui/components/loaderPage";
 
 export default function Dashboard() {
-  const { user, isLoadding,IsWebsiteAdmin } = useAuthHook();
+  const { user, isLoadding, IsWebsiteAdmin } = useContext(AuthContext);  
 
-  if (isLoadding) return <LoaderPage /> ;
-
-  if (!user || (user && IsWebsiteAdmin === true) ) return <Navigate to={"/PageError"} />;
-  
 
   return (
     <div>

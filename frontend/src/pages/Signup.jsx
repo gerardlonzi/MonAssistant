@@ -1,4 +1,6 @@
 import React from 'react'
+import { useContext } from "react";
+
 import Container from '../ui/components/container'
 import Navbar from '../ui/components/navbar'
 import { useForm } from "react-hook-form"
@@ -10,12 +12,12 @@ import {  toast } from 'react-toastify'
 import axios from "axios"
 import { useNavigate } from 'react-router-dom'
 import { Navigate } from 'react-router-dom'
-import useAuthHook from '../../hooks/authHook'
+import { AuthContext } from "../../hooks/authHook";
 import LoaderPage from '../ui/components/loaderPage'
 
 export default  function SignUp() {
   const navigate = useNavigate()
-  const {isLoadding,user} =  useAuthHook()
+  const { user, isLoadding, IsWebsiteAdmin } = useContext(AuthContext);  
   const { value: isLoading, setValue: setIsLoading } = useBoolean({ values: false })
   const {
     register,
@@ -77,8 +79,10 @@ export default  function SignUp() {
   console.log(watch("example"))
 
 
+  if (isLoadding) return <LoaderPage />
 
-  if(user ) return <Navigate to={"/dashboard"} />
+  if(user && IsWebsiteAdmin === false ) return <Navigate to={"/dashboard"} />
+  if(user && IsWebsiteAdmin === true ) return <Navigate to={"/admin"} />
 
   return (
     <>

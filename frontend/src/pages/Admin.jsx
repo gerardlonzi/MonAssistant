@@ -1,5 +1,5 @@
-import React from "react"
-import useAuthHook from "../../hooks/authHook";
+import React,{useContext} from "react"
+import { AuthContext } from "../../hooks/authHook";
 import { Navigate } from "react-router-dom";
 import LoaderPage from "../ui/components/loaderPage";
 import { useForm } from "react-hook-form"
@@ -11,11 +11,9 @@ import Button from "../ui/components/button";
 import Input from "../ui/components/input";
 
 export default function Admin() {
-  const auth = useAuthHook()
+  const auth = useContext(AuthContext)
   const user = auth?.user;
-  const isLoadding = auth?.isLoadding;
-  const IsWebsiteAdmin = auth?.IsWebsiteAdmin;
-  ;
+  
   const { value: isLoading, setValue: setIsLoading } = Boolean({ values: false })
 
   const {
@@ -26,8 +24,6 @@ export default function Admin() {
     formState: { errors },
   } = useForm()
 
-  if (isLoadding) return <LoaderPage />;
-  if (!user || (user && IsWebsiteAdmin !== true)) return <Navigate to={"/PageError"} />
 
   const onSubmit = async (data) => {
     setIsLoading(true)

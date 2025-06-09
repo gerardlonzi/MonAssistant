@@ -1,12 +1,12 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import Container from '../ui/components/container'
 import Navbar from '../ui/components/navbar'
 import { Link } from 'react-router-dom'
-import useAuthHook from '../../hooks/authHook'
+import { AuthContext } from "../../hooks/authHook";
 import LoaderPage from '../ui/components/loaderPage'
 
 export default function Creer_Cv() {
-  const { isLoadding, user,IsWebsiteAdmin } = useAuthHook()
+  const { user, isLoadding, IsWebsiteAdmin } = useContext(AuthContext);  
   if (isLoadding) return <LoaderPage />
   return (
     <>

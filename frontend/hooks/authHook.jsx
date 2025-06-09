@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/auth/verifyToken');
+        const res = await axios.get('http://localhost:5000/auth/verifyToken',{ withCredentials: true });
         setUser(res.data.user);
         setIsWebsiteAdmin(res.data.IsWebsiteAdmin)
 

@@ -7,9 +7,10 @@ import { AuthContext } from "../../hooks/authHook";
 import LoaderPage from '../ui/components/loaderPage'
 import { Check } from "lucide-react";
 const tabs = ["recommandè", "Nouveau", "Tout"];
-import { cvData } from '../data/cvInfos'
-import { CvTemplate } from '../data/cvTemplate'
+import { cvData } from "../data/cv/cvInfos";
+import { AllTemplatesArray } from "../data/cv/AllCvTemplateArray";
 import useBoolean from '../../hooks/boolean'
+import { ZoomIn } from "lucide-react";
 
 export default function ChooseTemplate() {
   const [selected, setSelected] = useState(tabs[0]);
@@ -125,18 +126,25 @@ const [myCvData,setMyData] = useState(cvData)
         <section>
         
         <div className="flex justify-center items-center gap-y-10 flex-col m-auto sm:grid xl:grid-cols-4 sm:grid-cols-2 lg:grid-cols-3 ">
-          <div className="rounded-xl overflow-hidden shadow-md w-[17rem]">
-          <CvTemplate myCvData={myCvData} activeColor={activeColor} hoverPalette={hoverPalette} usePicture={usePicture} size={'md'}/>
+            {
+              AllTemplatesArray.map(template=>{
+                const TemplateComponent = template.component
+                return (
+                  <div key={template.id} className="rounded-xl relaive hover:outline-2 outline-black overflow-hidden shadow-md w-[17rem]">
+                    <TemplateComponent myCvData={myCvData} activeColor={activeColor} hoverPalette={hoverPalette} usePicture={usePicture} size={'md'} />
+
+                  </div>
+                )
+              })
+            }
+              <div className="absolute ">
+              <ZoomIn strokeWidth={3} />
+              </div>
+              <button>utiliser ce template</button>
+            </div>
+
           </div>
-          <div className="rounded-xl overflow-hidden shadow-md w-[17rem]">
-          <CvTemplate myCvData={myCvData} activeColor={activeColor} hoverPalette={hoverPalette} usePicture={usePicture} size={'md'}/>
-          </div>
-          <div className="rounded-xl overflow-hidden shadow-md w-[17rem]">
-          <CvTemplate myCvData={myCvData} activeColor={activeColor} hoverPalette={hoverPalette} usePicture={usePicture} size={'md'}/>
-          </div>
-          <div className="rounded-xl overflow-hidden shadow-md w-[17rem]">
-          <CvTemplate myCvData={myCvData} activeColor={activeColor} hoverPalette={hoverPalette} usePicture={usePicture} size={'md'}/>
-          </div>
+          
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque ad voluptatum numquam deserunt repudiandae consequuntur animi aliquam est optio provident, iusto dolores tempore quaerat necessitatibus nisi temporibus, non aperiam distinctio.
           Earum nesciunt tenetur dolores quo itaque. Aliquid, repellat sed, et similique officiis reprehenderit enim odio reiciendis ex omnis, blanditiis nemo! Tempora, illo natus! A dolorum aut id enim reiciendis est?
           Aut animi totam adipisci culpa vero magni ad fugit esse, nesciunt recusandae! Doloribus iure ipsam libero sit, cum incidunt. Facilis sed rerum aliquam, aperiam sit impedit cumque delectus voluptatem. Fugit.

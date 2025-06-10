@@ -1,4 +1,4 @@
- export function CvTemplate({
+ export function Template001({
     myCvData,
     activeColor = '#1e2939',
     hoverPalette,

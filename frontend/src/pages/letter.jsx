@@ -3,7 +3,7 @@ import Container from '../ui/components/container'
 import Navbar from '../ui/components/navbar'
 import LoaderPage from '../ui/components/loaderPage'
 import { useState } from 'react'
-import { cvData } from '../data/cvInfos'
+import { cvData } from '../data/cv/cvInfos'
 import useBoolean from '../../hooks/boolean'
 
 export default function Letter() {

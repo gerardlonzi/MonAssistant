@@ -1,7 +1,7 @@
 export const cvData =  {
     img:"https://www.federationaddiction.fr/wp-content/uploads/2024/12/capture-decran-2024-12-06-155036.png",
     name:"Angele ramires",
-    profession:"Ta profession ",
+    profession:"Développeuse web ",
     contact : [
     {
         icon: <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">

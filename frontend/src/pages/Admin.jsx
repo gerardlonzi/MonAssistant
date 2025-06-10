@@ -96,8 +96,7 @@ export default function Admin() {
       {errors.categorie && <span className="text-red-500"> Ce champ est requis</span>}
     <input className="w-full" type="file" accept="image/*" {...register("thumbnailUrl", { required: true })} />
       {errors.thumbnailUrl && <span className="text-red-500">Image requise</span>}
-    
-
+  
     <textarea
         className="border border-green-800 w-full h-64 p-2"
         placeholder="Collez ici le HTML du modèle"

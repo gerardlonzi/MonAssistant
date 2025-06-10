@@ -54,7 +54,7 @@ const [myCvData,setMyData] = useState(cvData)
             ))}
           </div>
 
-          <div className="flex flex-wrap justify-center gap-4 fixed pt-5 py-9 md:py-0 bg-[#001230] md:bg-transparent left-0 right-0 bottom-0 md:static">
+          <div className="flex flex-wrap justify-center gap-4 fixed pt-5 py-9 md:py-0 bg-[#001230] md:bg-transparent z-100  left-0 right-0 bottom-0 md:static">
             <div
             onClick={() => {
               setActiveColor(null)
@@ -121,7 +121,7 @@ const [myCvData,setMyData] = useState(cvData)
           </div>
         </section>
         </Container>
-        <Container className="bg-[#b2e9ff24] py-10" >
+        <Container className="bg-[#b2e9ff24] py-10 " >
 
         <section>
         
@@ -130,42 +130,99 @@ const [myCvData,setMyData] = useState(cvData)
               AllTemplatesArray.map(template=>{
                 const TemplateComponent = template.component
                 return (
-                  <div key={template.id} className="rounded-xl relaive hover:outline-2 outline-black overflow-hidden shadow-md w-[17rem]">
+                  <div key={template.id} className="rounded-xl z-10 group relative hover:outline-2 outline-black overflow-hidden shadow-md w-[17rem] ">
                     <TemplateComponent myCvData={myCvData} activeColor={activeColor} hoverPalette={hoverPalette} usePicture={usePicture} size={'md'} />
-
+                    <div className="hidden group-hover:block transition-all">
+                       <div className="absolute p-3 bg-purple-400 rounded-full top-3 right-3 ">
+                        <ZoomIn strokeWidth={3} />
+                        </div>
+                        <div className="absolute bottom-5 flex justify-center  w-full">
+                        <button className="px-8 py-2 bg-green-500 font-bold text-secondary cursor-pointer rounded-full">utiliser ce template</button>
+                        </div>
+                    </div>
+                    
                   </div>
                 )
               })
             }
-              <div className="absolute ">
-              <ZoomIn strokeWidth={3} />
-              </div>
-              <button>utiliser ce template</button>
-            </div>
-
           </div>
+
+
+          Se connecter
+IL EST CAPABLE - ICC Gospel Choir
+
+Raynold Boudreau
+892 k abonnés
+
+S'abonner
+
+37 k
+
+
+Partager
+
+Enregistrer
+
+6,5 M de vues  il y a 9 ans
+ICC GOSPEL CHOIR
+La revendication Content ID associée à votre vidéo n'a pas d'impact sur votre chaîne. Il ne s'agit pas d'un avertissement pour atteinte aux droits d'auteur. …
+    
+
+7:15
+DIVIN AMOUR - Nadège Mbuma - Gael
+Raynold Boudreau
+1,4 M de vues
+•
+il y a 7 ans
+
+
+23:11
+Jean Jean : "Il fera", "Saint Esprit" et "Relâche ta gloire"
+EMCI TV
+1,3 M de vues
+•
+il y a 2 ans
+
+
+Mix
+Mix - PARFUM - Aimé Nkanu
+Aimé Nkanu, Exo, David Ize et bien plus encore
+Mise à jour aujourd'hui
+
+8:55
+À L'AGNEAU & À TOI LA GLOIRE - Exo
+Raynold Boudreau
+7,4 M de vues
+•
+il y a 5 ans
+
+
+18:50
+Même dans le tombeau, Jésus est Seigneur (Guy Christ Israël)
+Teddykims
+4 M de vues
+•
+il y a 4 ans
+
+
+16:49
+Jésus Tu es élevé / Ici et maintenant - Athoms Mbuma - EMCI Musique
+EMCI Musique
+2 M de vues
+•
+il y a 4 mois
+
+
+
+
+Combien tu est fidèle Jésus//Luc Dumont
+💯 REGENERER
+662 k vues
+•
+il y a 3 ans
+
           
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque ad voluptatum numquam deserunt repudiandae consequuntur animi aliquam est optio provident, iusto dolores tempore quaerat necessitatibus nisi temporibus, non aperiam distinctio.
-          Earum nesciunt tenetur dolores quo itaque. Aliquid, repellat sed, et similique officiis reprehenderit enim odio reiciendis ex omnis, blanditiis nemo! Tempora, illo natus! A dolorum aut id enim reiciendis est?
-          Aut animi totam adipisci culpa vero magni ad fugit esse, nesciunt recusandae! Doloribus iure ipsam libero sit, cum incidunt. Facilis sed rerum aliquam, aperiam sit impedit cumque delectus voluptatem. Fugit.
-          Illum excepturi aspernatur rerum, ad dolor maxime quam ipsum laborum nisi temporibus blanditiis quo quasi praesentium. Cupiditate repellat at beatae asperiores dolore! Blanditiis a molestias nostrum? Quasi fugit ipsa suscipit!
-          Culpa consequatur aut officiis ut debitis dicta voluptatibus et, error ipsum incidunt dolorum, laudantium sint exercitationem perspiciatis aliquid assumenda deserunt aliquam? Possimus, libero esse? Officia consequuntur reprehenderit necessitatibus fugit distinctio.
-          Rerum quis labore tempora eveniet obcaecati tempore modi, sed at vitae officiis autem, qui asperiores laborum! Voluptas inventore voluptatum voluptatibus quod nisi asperiores, unde, quia porro, fugiat doloremque recusandae iure.
-          Esse iste ad voluptates, maxime ipsa iure earum vitae itaque, nesciunt, aliquam nobis quaerat deserunt sequi nostrum. Blanditiis, quibusdam at minus voluptatem ea tenetur totam neque. Eos reiciendis praesentium at.
-          Consequuntur laboriosam voluptatem autem voluptate nobis cupiditate pariatur saepe vel neque impedit officiis veritatis dolores cum esse earum eligendi laudantium, culpa soluta ad sed nisi temporibus aspernatur. Ducimus, nam perspiciatis.
-          Cum, porro. Quidem ab rerum amet deleniti laudantium molestiae provident maiores fuga a vero ex deserunt eveniet, maxime nobis iusto sit adipisci ipsam! Voluptates consequuntur quas nulla inventore illum similique!
-          Recusandae, molestiae? Iste ab vero eaque quasi cupiditate laborum qui, nam eum quisquam, nisi corrupti magnam magni maiores quam quod sit deserunt quae eligendi, aliquid ex cum! Ipsam, deserunt quos.
-          Sint hic at voluptate commodi similique, deserunt officia cum totam velit aperiam unde labore explicabo error obcaecati ratione doloremque iste quos iure doloribus repudiandae dolore dolor voluptatibus cupiditate necessitatibus? Tempore!
-          Sequi modi amet iste rem beatae facilis illum necessitatibus ducimus temporibus commodi nemo maiores placeat neque fugit dolor eius recusandae quas, earum dolore mollitia, labore est qui optio? Voluptatibus, debitis!
-          Excepturi quisquam sapiente sed eaque vel cupiditate facere omnis, iure dolor quibusdam unde atque eligendi eos quam, similique commodi. Perspiciatis eos sint eum corrupti temporibus quos a, eligendi ipsam et.
-          Nulla eos praesentium labore, vel voluptate doloremque maiores rerum qui dolorum, quis reiciendis totam repellat laudantium velit necessitatibus similique eius laboriosam ipsum atque veritatis dicta iure quisquam nam? Dicta, quaerat!
-          Dignissimos eum rem facere quam officiis blanditiis, eos deserunt ipsum in? Nisi, iste. Quaerat voluptates voluptas cupiditate eligendi, at totam, ea facilis veritatis eveniet quisquam maxime provident unde doloremque rerum.
-          Quidem repellat inventore quae cumque iure nulla nostrum repudiandae totam temporibus est corrupti, eveniet repellendus dignissimos magnam fuga tempore magni ipsa aliquid saepe. Quibusdam, placeat officiis minus consequuntur expedita deserunt?
-          Iusto ex dolor perferendis, quod at adipisci mollitia, ut distinctio, error delectus vero illum a quaerat officiis. Autem, quae nulla harum qui laudantium accusantium iusto at, praesentium similique, dignissimos ut.
-          Aperiam tempore accusantium, quae officiis reiciendis et doloribus beatae tempora culpa nihil numquam commodi dolorum maxime eaque temporibus, alias sapiente sequi illo? Beatae itaque perspiciatis debitis ab accusamus animi iste!
-          Expedita quibusdam rem, delectus eos totam hic facere doloremque repellendus harum quasi voluptate aperiam veniam error optio quaerat ipsa, deserunt, veritatis impedit possimus. Nihil temporibus sint suscipit soluta et eius?
-          Ex sapiente rerum sit illum minus laboriosam adipisci eius explicabo, provident quos quidem cupiditate dignissimos porro excepturi quas numquam rem iusto nihil. Similique nesciunt, ab distinctio voluptatum omnis recusandae voluptatem.
-        </div>
+         
         </section>
         </Container>
     

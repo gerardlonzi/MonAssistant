@@ -7,6 +7,7 @@ export const AllTemplatesArray = [
     {
         id:uuidv4(),
         name:"modern gray blue",
-        component: Template001
+        component: Template001,
+        img : ""
     }
 ]

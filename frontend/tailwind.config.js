@@ -39,7 +39,11 @@ export default {
     'tracking-wide'
   ],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        'xs': '500px', // nouvelle taille responsive
+      },
+    },
   },
   plugins: [],
 };

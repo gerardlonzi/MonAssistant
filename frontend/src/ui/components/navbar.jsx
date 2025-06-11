@@ -27,7 +27,7 @@ export default function Navbar({ user, IsWebsiteAdmin }) {
 
 
   return (
-    <header className="flex px-2 sm:px-10 xl:px-24 py-5 justify-between items-center fixed top-0 w-full  z-100 md:bg-[#00275b] bg-white shadow-b-xl">
+    <header className="flex px-2 sm:px-10 xl:px-24 py-5 justify-between items-center fixed top-0 w-full  z-500 md:bg-[#00275b] bg-white shadow-b-xl">
       <nav className="flex justify-between items-center w-full ">
         <Link className="hidden md:block" to={"/"}> <img src="/imgs/logo.png" alt="logo-desktop" className="w-36 " /> </Link>
         <Link to={"/"} className="block md:hidden"> <img src="/imgs/logo-res.png" alt="logo-mobile" className="w-36 " /> </Link>

@@ -12,6 +12,7 @@ import { AllTemplatesArray } from "../data/cv/AllCvTemplateArray";
 import useBoolean from '../../hooks/boolean'
 import { ZoomIn } from "lucide-react";
 
+
 export default function ChooseTemplate() {
   const [selected, setSelected] = useState(tabs[0]);
   const [activeColor, setActiveColor] = useState(null);
@@ -22,6 +23,10 @@ export default function ChooseTemplate() {
   const {value:usePicture,setValue:setUsePicture}= useBoolean({values:true})
 const [primaryColor,setPrimaryColor] = useState(null)
 const [myCvData,setMyData] = useState(cvData)
+
+const [startIndex, setStartIndex] = useState(0)
+const [isModalOpen, setIsModalOpen] = useState(false);
+
 
   const handleColorChange = (e) => {
     const color = e.target.value;
@@ -34,7 +39,7 @@ const [myCvData,setMyData] = useState(cvData)
   return (
     <>
       <Navbar user={user} IsWebsiteAdmin={IsWebsiteAdmin} />
-      <Container className="mt-36 ">
+      <Container className="mt-36 relative z-100">
         <div className="text-center">
           <h1 className="text-[#00275b] text-3xl sm:text-4xl font-bold">Choisissez un modèle pour votre CV</h1>
           <p className="text-gray-600 text-lg mt-2">Vous pouvez toujours changer d'avis et essayer un autre modèle plus tard</p>
@@ -54,7 +59,7 @@ const [myCvData,setMyData] = useState(cvData)
             ))}
           </div>
 
-          <div className="flex flex-wrap justify-center gap-4 fixed pt-5 py-9 md:py-0 bg-[#001230] md:bg-transparent z-100  left-0 right-0 bottom-0 md:static">
+          <div className="flex flex-wrap justify-center gap-4 fixed pt-5 py-9 md:py-0 bg-[#001230] md:bg-transparent  left-0 right-0 bottom-0 md:static">
             <div
             onClick={() => {
               setActiveColor(null)
@@ -121,105 +126,31 @@ const [myCvData,setMyData] = useState(cvData)
           </div>
         </section>
         </Container>
-        <Container className="bg-[#b2e9ff24] py-10 " >
+        <Container className="bg-[#b2e9ff24] py-10 relative z-10 " >
 
         <section>
         
-        <div className="flex justify-center items-center gap-y-10 flex-col m-auto sm:grid xl:grid-cols-4 sm:grid-cols-2 lg:grid-cols-3 ">
+        <div className="flex justify-center items-center gap-y-10 flex-col m-auto sm:grid xl:grid-cols-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 relative xl:gap-20 md:gap-10 z-10">
             {
               AllTemplatesArray.map(template=>{
                 const TemplateComponent = template.component
                 return (
-                  <div key={template.id} className="rounded-xl z-10 group relative hover:outline-2 outline-black overflow-hidden shadow-md w-[17rem] ">
+                  <div key={template.id} className="rounded-xl  group relative  hover:outline-2 outline-black overflow-hidden shadow-md w-[15rem] ">
                     <TemplateComponent myCvData={myCvData} activeColor={activeColor} hoverPalette={hoverPalette} usePicture={usePicture} size={'md'} />
                     <div className="hidden group-hover:block transition-all">
-                       <div className="absolute p-3 bg-purple-400 rounded-full top-3 right-3 ">
+                       <div className="absolute p-3 hover:bg-purple-500 transition-all bg-purple-400 rounded-full top-3 right-3 ">
                         <ZoomIn strokeWidth={3} />
                         </div>
                         <div className="absolute bottom-5 flex justify-center  w-full">
-                        <button className="px-8 py-2 bg-green-500 font-bold text-secondary cursor-pointer rounded-full">utiliser ce template</button>
+                        <button className="px-8 py-3 hover:bg-green-600 bg-green-500 font-bold text-secondary cursor-pointer rounded-full transition-all">utiliser ce template</button>
                         </div>
                     </div>
-                    
                   </div>
                 )
               })
             }
+         
           </div>
-
-
-          Se connecter
-IL EST CAPABLE - ICC Gospel Choir
-
-Raynold Boudreau
-892 k abonnés
-
-S'abonner
-
-37 k
-
-
-Partager
-
-Enregistrer
-
-6,5 M de vues  il y a 9 ans
-ICC GOSPEL CHOIR
-La revendication Content ID associée à votre vidéo n'a pas d'impact sur votre chaîne. Il ne s'agit pas d'un avertissement pour atteinte aux droits d'auteur. …
-    
-
-7:15
-DIVIN AMOUR - Nadège Mbuma - Gael
-Raynold Boudreau
-1,4 M de vues
-•
-il y a 7 ans
-
-
-23:11
-Jean Jean : "Il fera", "Saint Esprit" et "Relâche ta gloire"
-EMCI TV
-1,3 M de vues
-•
-il y a 2 ans
-
-
-Mix
-Mix - PARFUM - Aimé Nkanu
-Aimé Nkanu, Exo, David Ize et bien plus encore
-Mise à jour aujourd'hui
-
-8:55
-À L'AGNEAU & À TOI LA GLOIRE - Exo
-Raynold Boudreau
-7,4 M de vues
-•
-il y a 5 ans
-
-
-18:50
-Même dans le tombeau, Jésus est Seigneur (Guy Christ Israël)
-Teddykims
-4 M de vues
-•
-il y a 4 ans
-
-
-16:49
-Jésus Tu es élevé / Ici et maintenant - Athoms Mbuma - EMCI Musique
-EMCI Musique
-2 M de vues
-•
-il y a 4 mois
-
-
-
-
-Combien tu est fidèle Jésus//Luc Dumont
-💯 REGENERER
-662 k vues
-•
-il y a 3 ans
 
           
          

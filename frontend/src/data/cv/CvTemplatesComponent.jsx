@@ -16,13 +16,13 @@
         sectionGap: 'mt-4',
       },
       md: {
-        root: 'w-[17rem] h-[21rem] overflow-hidden',
+        root: 'w-[15rem] h-[21rem] overflow-hidden',
         text: 'text-[5px]',
         text_title:"text-[6px]",
         text_name:"text-[8px]",
         padding: 'px-2 py-4',
         image: 'w-16 h-16 mb-2',
-        margin_Side:"mt-2 mb-1",
+        margin_Side:"mt-1 mb-1",
         contactSpaceX:"space-y-[1px]",
         contactContentGap:"gap-1",
         ul_ps:"ps-[10px]"

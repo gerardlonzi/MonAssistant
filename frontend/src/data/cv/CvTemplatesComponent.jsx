@@ -28,7 +28,7 @@
         ul_ps:"ps-[10px]"
       },
       lg: {
-        root: 'w-[20rem] h-[20rem] ',
+        root: 'w-[25rem] h-[32rem] ',
         text: 'text-lg',
         padding: 'px-12 py-16',
         image: 'w-14 h-14',

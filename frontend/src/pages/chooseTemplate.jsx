@@ -11,6 +11,7 @@ import { cvData } from "../data/cv/cvInfos";
 import { AllTemplatesArray } from "../data/cv/AllCvTemplateArray";
 import useBoolean from '../../hooks/boolean'
 import { ZoomIn } from "lucide-react";
+import CVCarousel from "../ui/components/CarouselModal";
 
 
 export default function ChooseTemplate() {
@@ -21,12 +22,16 @@ export default function ChooseTemplate() {
   const [isClickColor, SetIsClickColor] = useState(false);
   const { user, isLoadding, IsWebsiteAdmin } = useContext(AuthContext);  
   const {value:usePicture,setValue:setUsePicture}= useBoolean({values:true})
-const [primaryColor,setPrimaryColor] = useState(null)
-const [myCvData,setMyData] = useState(cvData)
+  const [primaryColor,setPrimaryColor] = useState(null)
+  const [myCvData,setMyData] = useState(cvData)
 
-const [startIndex, setStartIndex] = useState(0)
-const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showCarousel, setShowCarousel] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
+  const handleTemplateClick = (index) => {
+    setSelectedIndex(index);
+    setShowCarousel(true);
+  };
 
   const handleColorChange = (e) => {
     const color = e.target.value;
@@ -132,13 +137,13 @@ const [isModalOpen, setIsModalOpen] = useState(false);
         
         <div className="flex justify-center items-center gap-y-10 flex-col m-auto sm:grid xl:grid-cols-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 relative xl:gap-20 md:gap-10 z-10">
             {
-              AllTemplatesArray.map(template=>{
+              AllTemplatesArray.map((template,index)=>{
                 const TemplateComponent = template.component
                 return (
                   <div key={template.id} className="rounded-xl  group relative  hover:outline-2 outline-black overflow-hidden shadow-md w-[15rem] ">
                     <TemplateComponent myCvData={myCvData} activeColor={activeColor} hoverPalette={hoverPalette} usePicture={usePicture} size={'md'} />
                     <div className="hidden group-hover:block transition-all">
-                       <div className="absolute p-3 hover:bg-purple-500 transition-all bg-purple-400 rounded-full top-3 right-3 ">
+                       <div className="absolute p-3 hover:bg-purple-500 transition-all bg-purple-400 rounded-full top-3 right-3 " onClick={() => handleTemplateClick(index)}>
                         <ZoomIn strokeWidth={3} />
                         </div>
                         <div className="absolute bottom-5 flex justify-center  w-full">
@@ -156,7 +161,15 @@ const [isModalOpen, setIsModalOpen] = useState(false);
          
         </section>
         </Container>
-    
+        {showCarousel && (
+        <CVCarousel
+          activeIndex={selectedIndex}
+          onClose={() => setShowCarousel(false)}
+          activeColor={activeColor}
+          hoverPalette={hoverPalette}
+          myCvData={myCvData}
+        />
+      )}
     </>
   );
 };

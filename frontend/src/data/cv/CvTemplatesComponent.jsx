@@ -25,14 +25,22 @@
         margin_Side:"mt-1 mb-1",
         contactSpaceX:"space-y-[1px]",
         contactContentGap:"gap-1",
-        ul_ps:"ps-[10px]"
+        ul_ps:"ps-[10px]",
+        iconSize:"w-1 h-1"
+
       },
       lg: {
-        root: 'w-[25rem] h-[32rem] ',
-        text: 'text-lg',
-        padding: 'px-12 py-16',
-        image: 'w-14 h-14',
-        sectionGap: 'mt-10',
+        root: 'w-[25rem] h-[34rem] ',
+        text: 'text-[8px]',
+        text_title:"text-[8px]",
+        text_name:"text-[10px]",
+        padding: 'px-4 py-6',
+        image: 'w-22 h-22 mb-2',
+        margin_Side:"mt-4 mb-1",
+        contactSpaceX:"space-y-[7px]",
+        contactContentGap:"gap-2 items-center",
+        ul_ps:"ps-[10px]",
+        iconSize:"w-2 h-2"
       }
     };
   
@@ -66,13 +74,13 @@
             <div className={`${styles.contactSpaceX} `}> 
               {myCvData.contact.map((el, index) => (
                 <div key={index} className={`flex ${styles.contactContentGap} `}>
-                  <span className="text-blue-400 w-1 h-1">{el.icon}</span>
+                  <span className={`text-blue-400 ${styles.iconSize}`}>{el.icon}</span>
                   <span>{el.infos}</span>
                 </div>
               ))}
             </div>
           </section>
-  
+
           {/* COMPETENCES */}
           <section >
             <p className={`font-bold ${styles.text_title} ${styles.margin_Side}`}>COMPÉTENCES</p>

@@ -12,6 +12,7 @@ import { AllTemplatesArray } from "../data/cv/AllCvTemplateArray";
 import useBoolean from '../../hooks/boolean'
 import { ZoomIn } from "lucide-react";
 import CVCarousel from "../ui/components/CarouselModal";
+import ColorPicker from "../ui/components/colorPicker";
 
 
 export default function ChooseTemplate() {
@@ -64,71 +65,7 @@ export default function ChooseTemplate() {
             ))}
           </div>
 
-          <div className="flex flex-wrap justify-center gap-4 fixed pt-5 py-9 md:py-0 bg-[#001230] md:bg-transparent  left-0 right-0 bottom-0 md:static">
-            <div
-            onClick={() => {
-              setActiveColor(null)
-              SetIsClickColor(true)
-            }}
-              className="w-[1.6rem] h-[1.6rem]  rounded-full cursor-pointer hover:border-black border-2 border-gray-300"
-              style={{ backgroundColor: "white" }}
-            > </div>
-            <div
-            onClick={() => {
-              setActiveColor(null)
-              SetIsClickColor(true)
-            }}
-              className="w-[1.6rem] h-[1.6rem]  rounded-full cursor-pointer hover:border-black border-2 border-gray-300"
-              style={{ background: "conic-gradient(from 50.54deg at 50% 50%, red 0deg, #ff0 72deg, lime 144deg, cyan 190.07deg, blue 261.19deg, #f0f 319.78deg, red 360deg)"}}
-            > </div>
-            {colorThemes.map((el, id) => (
-              <div
-                key={id}
-                className="relative group"
-                onMouseEnter={() => SetIdPalette(el.id)}
-                onMouseLeave={() => SetIdPalette(null)}
-              >
-
-                {iDPalette === el.id ? <>
-                  <div
-                    className="w-[1.6rem] h-[1.6rem]  rounded-full cursor-pointer hover:border-black border-2 border-gray-300"
-                    style={{ backgroundColor: el.initial }}
-                  > </div>
-                  <motion.div
-
-                    className="absolute space-y-2 p-1  rounded-full shadow-xl border border-gray-200 bg-white z-10 top-[-2.5rem] left-1/2 -translate-x-1/2"
-                  >
-                    {el.derive.map((shade, idx) => (
-                      <div
-                        key={idx}
-                        onMouseEnter={() => setHoverPalette(shade)}
-                        onMouseLeave={() => setHoverPalette(null)}
-                        onClick={() => {
-                          
-                          setActiveColor(shade)
-                          SetIsClickColor(true)
-                        }}
-                        className="w-[1.6rem] h-[1.6rem] rounded-full hover:border-black border-2 border-gray-300"
-                        style={{ backgroundColor: shade }}
-                      >
-                        {
-                          activeColor === shade && <Check className="w-4 m-auto text-white" />
-                        }
-                      </div>
-                    ))}
-                  </motion.div>
-                </> : <div
-                  className="w-[1.6rem] h-[1.6rem] wrap-anywhere   rounded-full cursor-pointer hover:border-black border-2 border-gray-300"
-                  style={{ backgroundColor: el.initial }}
-                >
-                  {
-                    el.derive.includes(activeColor) && <Check className="w-4 m-auto text-white" />
-                  }
-                </div>
-                }
-              </div>
-            ))}
-          </div>
+          <ColorPicker gap={4} colorThemes={colorThemes} activeColor={activeColor} setActiveColor={setActiveColor} setIsClickColor={SetIsClickColor} hoverPalette={hoverPalette} setHoverPalette={setHoverPalette} idPalette={iDPalette} setIdPalette={SetIdPalette} />
         </section>
         </Container>
         <Container className="bg-[#b2e9ff24] py-10 relative z-10 " >
@@ -147,7 +84,7 @@ export default function ChooseTemplate() {
                         <ZoomIn strokeWidth={3} />
                         </div>
                         <div className="absolute bottom-5 flex justify-center  w-full">
-                        <button className="px-8 py-3 hover:bg-green-600 bg-green-500 font-bold text-secondary cursor-pointer rounded-full transition-all">utiliser ce template</button>
+                        <button className="px-8 py-3 hover:bg-green-500 bg-green-400 font-bold text-secondary cursor-pointer rounded-full transition-all">utiliser ce template</button>
                         </div>
                     </div>
                   </div>
@@ -165,8 +102,6 @@ export default function ChooseTemplate() {
         <CVCarousel
           activeIndex={selectedIndex}
           onClose={() => setShowCarousel(false)}
-          activeColor={activeColor}
-          hoverPalette={hoverPalette}
           myCvData={myCvData}
         />
       )}

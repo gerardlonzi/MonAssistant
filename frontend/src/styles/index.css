@@ -43,3 +43,6 @@ animation: bounceY 4s ease;
 .bg-secondary{
   background: #00275b;
 }
+.shadow_{
+  box-shadow:3px 3px  15px rgb(158, 158, 158);
+}

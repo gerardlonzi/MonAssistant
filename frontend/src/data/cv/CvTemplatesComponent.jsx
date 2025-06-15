@@ -221,22 +221,24 @@ export function Template002({
     },
     md: {
       root: 'w-[20rem] h-[28rem] ',
-      text: 'text-[5px]',
-      text_title: " text-[7px] mt-[6px] font-bold ",
+      text: 'text-[6px]',
+      text_title: " text-[8px] mt-[7px] font-bold ",
       text_content_ul: "list-disc ml-2",
-      text_under_title_leftSide: "mt-[2px] space-y-[1.5px] text-gray-300",
-      padding_left_side: 'px-2 py-2',
-      image: 'w-16 h-16 mb-[9px]',
+      text_under_title_leftSide: "mt-[7px] space-y-[1.5px] text-gray-300",
+      padding_left_side: 'px-3 py-3',
+      image: 'w-20 h-20 mb-[9px]',
       hr_marge: "mt-2",
+      width_left_side:"w-[8rem]",
 
-      text__title_second_rightSide: " text-[7px] mt-[2px]  gap-[3px]",
+
+      text__title_second_rightSide: " text-[8px] mt-[3px]  gap-[3px]",
       circle__title_second_rightSide: "size-[5px] bg-[#08084d] rounded-full",
       text_date: "text-[5px] uppercase mt-[1px]",
-      text_name: "text-[16px] text-[#08084d]",
-      text_profession: "text-[10px]  text-[#08084d]",
-      padding_right_side: 'pt-[20px] px-[10px]',
+      text_name: "text-[19px] text-[#08084d]",
+      text_profession: "text-[12px]  text-[#08084d]",
+      padding_right_side: 'pt-[25px] px-[12px]',
       margin_content_under_title: "mt-[1px] ",
-      margin_content_under_title_second: "mt-[2px]",
+      margin_content_under_title_second: "mt-[3px]",
 
     },
     lg: {
@@ -244,21 +246,21 @@ export function Template002({
       text: 'text-[8px]',
       text_title: " text-[10px] mt-[8px] font-bold ",
       text_content_ul: "list-disc ml-2",
-      text_under_title_leftSide: "mt-[2px] space-y-[1.5px] text-gray-300",
+      text_under_title_leftSide: "mt-[10px] space-y-[1.5px] text-gray-300",
       padding_left_side: 'px-4 py-4',
-      image: 'w-20 h-20 mb-[9px]',
-      hr_marge: "mt-2",
+      image: 'w-[6.5rem] h-[6.5rem] mb-[9px]',
+      hr_marge: "mt-[10px]",
       width_left_side:"w-[12rem]",
 
 
-      text__title_second_rightSide: " text-[7px] mt-[2px]  gap-[3px]",
+      text__title_second_rightSide: " text-[9px] mt-[4px]  gap-[3px]",
       circle__title_second_rightSide: "size-[5px] bg-[#08084d] rounded-full",
-      text_date: "text-[5px] uppercase mt-[1px]",
-      text_name: "text-[16px] text-[#08084d]",
-      text_profession: "text-[10px]  text-[#08084d]",
-      padding_right_side: 'pt-[20px] px-[10px]',
-      margin_content_under_title: "mt-[1px] ",
-      margin_content_under_title_second: "mt-[2px]",
+      text_date: "text-[7px] uppercase mt-[2px]",
+      text_name: "text-[25px] text-[#08084d]",
+      text_profession: "text-[15px]  text-[#08084d]",
+      padding_right_side: 'pt-[30px] px-[15px]',
+      margin_content_under_title: "mt-[2px] ",
+      margin_content_under_title_second: "mt-[4px]",
     },
     xl: {
 
@@ -334,7 +336,7 @@ export function Template002({
           <p style={{ color: hoverPalette || activeColor }} className={`${styles.text_title} text-[#08084d]`}>EXPÉRIENCES PROFESSIONNELLES</p>
           <div>{myCvData.experience.map((el, index) =>
             <div>
-              <p className={`font-bold  flex items-center ${styles.text__title_second_rightSide}`}><div style={{ backgroundColor: hoverPalette || activeColor }} className={`${styles.circle__title_second_rightSide} `}></div><span>{el.poste} á Douala</span> </p>
+              <div className={`font-bold  flex items-center ${styles.text__title_second_rightSide}`}><div style={{ backgroundColor: hoverPalette || activeColor }} className={`${styles.circle__title_second_rightSide} `}></div><span>{el.poste} á Douala</span> </div>
               <div className={`flex justify-between flex-col ${styles.margin_content_under_title_second}`}>
                 <p className={`${styles.text_date}`}><span>{el.debut}</span> - <span>{el.fin}</span></p>
                 <ul className={`${styles.text_content_ul} ${styles.margin_content_under_title}`}>

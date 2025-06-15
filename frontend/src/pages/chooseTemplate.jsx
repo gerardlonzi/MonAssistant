@@ -6,7 +6,6 @@ import { colorThemes } from "../data/ColorTemplateData";
 import { AuthContext } from "../../hooks/authHook";
 import LoaderPage from '../ui/components/loaderPage'
 import { Check } from "lucide-react";
-const tabs = ["recommandè", "Nouveau", "Tout"];
 import { cvData } from "../data/cv/cvInfos";
 import { AllTemplatesArray } from "../data/cv/AllCvTemplateArray";
 import useBoolean from '../../hooks/boolean'
@@ -14,9 +13,11 @@ import { ZoomIn } from "lucide-react";
 import CVCarousel from "../ui/components/CarouselModal";
 import ColorPicker from "../ui/components/colorPicker";
 
+const tabs = ["Recommandé", "Nouveau", "Tout"];
 
 export default function ChooseTemplate() {
   const [selected, setSelected] = useState(tabs[0]);
+  const [AllTemplatesArrayState, setAllTemplatesArrayState] = useState(AllTemplatesArray);
   const [activeColor, setActiveColor] = useState(null);
   const [hoverPalette, setHoverPalette] = useState(null);
   const [iDPalette, SetIdPalette] = useState(null);
@@ -50,6 +51,7 @@ export default function ChooseTemplate() {
           <h1 className="text-[#00275b] text-3xl sm:text-4xl font-bold">Choisissez un modèle pour votre CV</h1>
           <p className="text-gray-600 text-lg mt-2">Vous pouvez toujours changer d'avis et essayer un autre modèle plus tard</p>
         </div>
+        
         <section className="flex w-full sticky bg-white pt-8 pb-10 sm:pt-0  top-16  flex-col flex-col-reverse lg:flex-row justify-center items-center mt-8 md:gap-10 lg:gap-16 gap-4">
           <div className="flex  gap-2 justify-center wrap-anywhere  relative">
             {tabs.map((tab) => (
@@ -64,21 +66,24 @@ export default function ChooseTemplate() {
               </>
             ))}
           </div>
-
+          <div className={` fixed bg-[#001230] md:bg-transparent left-0 right-0 bottom-0 md:static`}>
           <ColorPicker gap={4} colorThemes={colorThemes} activeColor={activeColor} setActiveColor={setActiveColor} setIsClickColor={SetIsClickColor} hoverPalette={hoverPalette} setHoverPalette={setHoverPalette} idPalette={iDPalette} setIdPalette={SetIdPalette} />
+
+          </div>
+
         </section>
         </Container>
-        <Container className="bg-[#b2e9ff24] py-10 relative z-10 " >
+        <Container className="bg-[#b2e9ff24] pb-48 pt-10 relative z-10 " >
 
         <section>
         
         <div className="flex justify-center items-center gap-y-10 flex-col m-auto sm:grid xl:grid-cols-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 relative xl:gap-20 md:gap-10 z-10">
             {
-              AllTemplatesArray.map((template,index)=>{
+              AllTemplatesArrayState.map((template,index)=>{
                 const TemplateComponent = template.component
                 return (
                   <div key={template.id} className="rounded-xl  group relative  hover:outline-2 outline-black overflow-hidden shadow-md w-[15rem] ">
-                    <TemplateComponent myCvData={myCvData} activeColor={activeColor} hoverPalette={hoverPalette} usePicture={usePicture} size={'md'} />
+                    <TemplateComponent myCvData={myCvData} activeColor={activeColor} hoverPalette={hoverPalette} usePicture={usePicture} size={'sm'} />
                     <div className="hidden group-hover:block transition-all">
                        <div className="absolute p-3 hover:bg-purple-500 transition-all bg-purple-400 rounded-full top-3 right-3 " onClick={() => handleTemplateClick(index)}>
                         <ZoomIn strokeWidth={3} />

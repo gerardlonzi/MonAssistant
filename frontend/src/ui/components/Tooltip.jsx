@@ -3,7 +3,7 @@ import React from 'react';
 const Tooltip = () => {
   return (
     <div className="relative inline-block group">
-      <button className="text-green-600">
+      <button className="text-green-600 flex">
           <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" className="w-4 h-4">
             <path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" strokeWidth={2} strokeLinejoin="round" strokeLinecap="round" />
           </svg>
@@ -30,7 +30,7 @@ const Tooltip = () => {
             </div>
           </div>
           <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-indigo-500/10 to-purple-500/10 blur-xl opacity-50" />
-          <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-gradient-to-br from-gray-900/95 to-gray-800/95 rotate-45 border-r border-b border-white/10" />
+          <div className="absolute  left-0 top-1/2 -translate-x-1/2 w-3 h-3 bg-gradient-to-br from-gray-900/95 to-gray-800/95 rotate-45 border-r border-b border-white/10" />
         </div>
       </div>
     </div>

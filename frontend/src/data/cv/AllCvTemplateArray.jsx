@@ -27,8 +27,10 @@ export const AllTemplatesArray = [
             "ontenu d'exemple modifiable",
             "Téléchargez au format PDF, Word DOCX ou TXT"
         ],
-        type:"New"
+        type:"Nouveau"
 
     }
+    
+    
    
 ]

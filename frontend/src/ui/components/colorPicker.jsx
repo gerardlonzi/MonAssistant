@@ -15,8 +15,7 @@ const ColorPicker = ({
 }) => {
 
   return (
-    <div className={`flex flex-wrap justify-center gap-${gap} fixed pt-5 py-9 md:py-0 bg-[#001230] md:bg-transparent left-0 right-0 bottom-0 md:static`}>
-      {/* Blanc */}
+    <div className={`flex flex-wrap justify-start gap-${gap} px-5 md:px-0 pt-5 py-9 md:py-0  `}>
       <div
         onClick={() => {
           setActiveColor(null);

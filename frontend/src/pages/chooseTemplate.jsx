@@ -12,23 +12,26 @@ import useBoolean from '../../hooks/boolean'
 import { ZoomIn } from "lucide-react";
 import CVCarousel from "../ui/components/CarouselModal";
 import ColorPicker from "../ui/components/colorPicker";
+import { Link } from "react-router-dom";
+import LinkComponent from "../ui/components/Link";
 
 const tabs = ["Recommandé", "Nouveau", "Tout"];
 
 export default function ChooseTemplate() {
   const [selected, setSelected] = useState(tabs[0]);
-  const [AllTemplatesArrayState, setAllTemplatesArrayState] = useState(AllTemplatesArray);
+  const [AllTemplatesArrayState, setAllTemplatesArrayState] = useState(AllTemplatesArray.filter(el=>el.categorie===tabs[0]));
   const [activeColor, setActiveColor] = useState(null);
   const [hoverPalette, setHoverPalette] = useState(null);
   const [iDPalette, SetIdPalette] = useState(null);
   const [isClickColor, SetIsClickColor] = useState(false);
-  const { user, isLoadding, IsWebsiteAdmin } = useContext(AuthContext);  
   const {value:usePicture,setValue:setUsePicture}= useBoolean({values:true})
   const [primaryColor,setPrimaryColor] = useState(null)
   const [myCvData,setMyData] = useState(cvData)
-
   const [showCarousel, setShowCarousel] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const { user, isLoadding, IsWebsiteAdmin } = useContext(AuthContext);  
+
 
   const handleTemplateClick = (index) => {
     setSelectedIndex(index);
@@ -38,6 +41,16 @@ export default function ChooseTemplate() {
   const handleColorChange = (e) => {
     const color = e.target.value;
     setActiveColor(color);
+  };
+
+  const handleTabClick = (tab) => {
+    if (tab === "Tout") {
+      setAllTemplatesArrayState(AllTemplatesArray); 
+    } else {
+      
+      const filteredTemplates = AllTemplatesArray.filter(template => template.categorie === tab);
+      setAllTemplatesArrayState(filteredTemplates); 
+    }
   };
 
   if (isLoadding) return <LoaderPage />
@@ -61,6 +74,8 @@ export default function ChooseTemplate() {
                   selected={selected === tab}
                   setSelected={setSelected}
                   key={tab}
+                  handleTabClick={handleTabClick}
+                  
                 />
                 <div className="w-72 border-b border-b-2 absolute border-b-slate-200 bottom-0 -z-1"></div>
               </>
@@ -82,6 +97,11 @@ export default function ChooseTemplate() {
               AllTemplatesArrayState.map((template,index)=>{
                 const TemplateComponent = template.component
                 return (
+                  <motion.div
+                  initial={{ opacity: 0, y: 40, rotate: -5 }}
+                  animate={{ opacity: 1, y: 0, rotate: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1, type: "spring" }}
+                >
                   <div key={template.id} className="rounded-xl  group relative  hover:outline-2 outline-black overflow-hidden shadow-md w-[15rem] ">
                     <TemplateComponent myCvData={myCvData} activeColor={activeColor} hoverPalette={hoverPalette} usePicture={usePicture} size={'sm'} />
                     <div className="hidden group-hover:block transition-all">
@@ -89,10 +109,12 @@ export default function ChooseTemplate() {
                         <ZoomIn strokeWidth={3} />
                         </div>
                         <div className="absolute bottom-5 flex justify-center  w-full">
-                        <button className="px-8 py-3 hover:bg-green-500 bg-green-400 font-bold text-secondary cursor-pointer rounded-full transition-all">utiliser ce template</button>
+                          <LinkComponent className={"text-sm px-8"} to={"/select-cv"} variant={"tercero"} content={"utiliser ce template"} />
+                        
                         </div>
                     </div>
                   </div>
+                  </motion.div>
                 )
               })
             }
@@ -109,28 +131,9 @@ export default function ChooseTemplate() {
           onClose={() => setShowCarousel(false)}
           myCvData={myCvData}
           activeColor_No_zoom={activeColor}
+          AllTemplatesArraycaroussel={AllTemplatesArrayState}
         />
       )}
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos, ab consectetur illum voluptatibus veniam corrupti ipsa aut modi repudiandae, ut ad laborum, cum voluptatem optio inventore distinctio! Alias, magni architecto.
-      Cumque officia nulla ratione fuga quae. Non, et natus placeat nam alias ipsum eaque repellendus quia quas, dolores, nulla repudiandae facere accusamus unde itaque maiores dolorum maxime numquam! Aperiam, rerum.
-      Laudantium ea atque nihil animi facilis fugiat placeat doloremque eligendi praesentium id mollitia quibusdam eveniet, sequi, veritatis, voluptatem magnam aperiam ut explicabo exercitationem voluptate. Doloremque, quaerat amet! Incidunt, numquam cumque?
-      Aspernatur, expedita aliquam hic iste ea quasi eius sed voluptate. Perferendis, quod excepturi! Qui explicabo eligendi, ducimus suscipit reprehenderit doloremque fuga asperiores illo illum aut inventore tempore ipsa voluptatem eum.
-      Quidem aut iure ipsam, explicabo est cupiditate ducimus quisquam vitae fugit nam laudantium tempore repellendus deleniti ea autem possimus cum. Maiores quod reiciendis laborum at officia. Eius, natus officiis. Omnis!
-      Est, eveniet? Adipisci harum iure illo quas! Sint odit velit cumque unde, id soluta? Ratione animi accusantium illum, est non, excepturi dolorem earum eius velit nulla recusandae itaque tempora? Reiciendis!
-      Minus non perferendis tempore nihil ipsum ullam possimus itaque corporis officia saepe, quasi est dicta ex vel reprehenderit similique dolorum, atque iste odio architecto consequatur quam dolorem animi! Fugiat, cumque.
-      Ullam officiis exercitationem excepturi voluptatibus molestias, similique distinctio dolor quia nulla aperiam ratione dolorem magni aliquam est voluptas alias blanditiis. Est labore placeat quam, excepturi illo provident? Reiciendis, nesciunt impedit.
-      Accusamus amet itaque consequatur iure, libero maxime tempora expedita ipsum vero corrupti! Explicabo itaque voluptatem odio porro ducimus impedit ullam suscipit, ut vero corporis nobis, eveniet facilis reiciendis laboriosam velit!
-      Ratione architecto dignissimos sapiente. Rem molestiae deleniti voluptatum, aliquid qui at suscipit ipsam recusandae saepe fuga odit, maiores ad quam error culpa quis quaerat laborum vero aut. Nesciunt, tempora voluptatem?
-      Facilis iusto nisi error voluptatum provident officia aliquam alias repellendus, dignissimos doloremque quae unde rerum. Fugiat doloremque ipsam iste necessitatibus vero deleniti, architecto, nam soluta, quod velit ex perspiciatis debitis?
-      Optio quod ipsum modi labore nam veritatis ipsam dolores similique nostrum, vero officia eius omnis aliquid ea nobis aspernatur debitis assumenda? Praesentium earum minus hic optio veritatis nam quae placeat.
-      Delectus inventore sed earum temporibus molestiae consequatur consequuntur corporis ipsa culpa eveniet, soluta assumenda perspiciatis unde saepe libero dolores sapiente ipsum nobis iusto nam suscipit architecto quasi ad quisquam. Accusamus?
-      Animi nulla a adipisci sit laborum qui explicabo? Incidunt, tempora dolorum a impedit, nihil possimus accusamus dicta non explicabo commodi magni. Nostrum aut architecto maxime. Similique dolore repellat laborum corrupti?
-      Dolorum quas quae architecto ea earum quasi quo! Odio perferendis quaerat blanditiis rem nobis provident laboriosam quae corrupti! Dolores expedita a vitae obcaecati laudantium velit, fugiat deleniti delectus illo eos.
-      Nisi, eos error est magni numquam distinctio, inventore officia eum ipsa laborum neque corrupti! Itaque perspiciatis labore at sequi neque earum a, ab voluptates veniam nam delectus ducimus voluptate. Beatae?
-      Error aut tenetur alias quia omnis, excepturi eius, praesentium officiis laudantium explicabo porro modi provident consectetur? Quo ab dolores, fugiat totam perspiciatis voluptate officiis veritatis tenetur enim quibusdam cumque asperiores.
-      Incidunt laborum quidem quo sunt optio at ullam dicta fuga maiores perspiciatis dolorum fugit quis consectetur officia, laudantium nobis, deserunt pariatur voluptas hic. Quo, alias unde? Odio expedita animi nostrum?
-      Dicta dolores quo eius aperiam excepturi at corrupti quod, eligendi natus quas, odit, unde nesciunt aspernatur veniam laborum? Magni sequi quidem expedita nihil aspernatur officiis praesentium amet facere tenetur voluptas!
-      Amet dignissimos ex neque similique qui officiis illo sequi, sunt ea id eaque accusantium quos eligendi unde illum molestiae debitis incidunt enim adipisci quas pariatur laboriosam beatae? Perferendis, aperiam nobis.
     </>
   );
 };
@@ -141,10 +144,14 @@ const Chip = ({
   text,
   selected,
   setSelected,
+  handleTabClick
 }) => {
   return (
     <button
-      onClick={() => setSelected(text)}
+      onClick={() => {
+        setSelected(text)
+        handleTabClick(text)
+      }}
       className={`${selected
         ? "text-green-600"
         : "text-gray-600 "

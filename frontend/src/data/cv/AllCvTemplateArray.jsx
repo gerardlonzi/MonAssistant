@@ -15,7 +15,7 @@ export const AllTemplatesArray = [
             "ontenu d'exemple modifiable",
             "Téléchargez au format PDF, Word DOCX ou TXT"
         ],
-        type:"Recommandé"
+        categorie:"Recommandé"
     },
     {
         id:uuidv4(),
@@ -27,7 +27,7 @@ export const AllTemplatesArray = [
             "ontenu d'exemple modifiable",
             "Téléchargez au format PDF, Word DOCX ou TXT"
         ],
-        type:"Nouveau"
+        categorie:"Nouveau"
 
     }
     

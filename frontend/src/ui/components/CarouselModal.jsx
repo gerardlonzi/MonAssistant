@@ -7,11 +7,13 @@ import 'swiper/css';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css/navigation';
 import { ArrowLeft, ArrowRight, WandSparkles, Check, PencilRuler, HardDriveDownload, BadgeHelp } from 'lucide-react';
-import { AllTemplatesArray } from '../../data/cv/AllCvTemplateArray';
+
 import ColorPicker from './colorPicker';
 import Tooltip from './Tooltip';
+import { Link } from 'react-router-dom';
+import LinkComponent from './Link';
 
-export default function CVCarousel({ activeIndex, onClose, myCvData, size, activeColor_No_zoom }) {
+export default function CVCarousel({ activeIndex, onClose, myCvData, size, activeColor_No_zoom,AllTemplatesArraycaroussel }) {
     const [activeColor, setActiveColor] = useState(activeColor_No_zoom);
     const [hoverPalette, setHoverPalette] = useState(null);
     const [idPalette, setIdPalette] = useState(null);
@@ -32,7 +34,7 @@ export default function CVCarousel({ activeIndex, onClose, myCvData, size, activ
                         prevEl: '.custom-prev',
                         nextEl: '.custom-next',
                     }} initialSlide={activeIndex} autoplay={false} spaceBetween={30} slidesPerView={1} loop={true}>
-                    {AllTemplatesArray.map(cv => {
+                    {AllTemplatesArraycaroussel.map(cv => {
                         const TemplateComponent = cv.component
                         return (
                             <SwiperSlide key={cv.id}>
@@ -50,11 +52,11 @@ export default function CVCarousel({ activeIndex, onClose, myCvData, size, activ
                                             <ColorPicker gap={2} colorThemes={colorThemes} activeColor={activeColor} setActiveColor={setActiveColor} setIsClickColor={setIsClickColor} hoverPalette={hoverPalette} setHoverPalette={setHoverPalette} idPalette={idPalette} setIdPalette={setIdPalette} />
                                         </div>
                                     </div>
-                                    <div className='p-7 md:p-5 lg:p-8 '>
+                                    <div className='p-7 md:p-5 lg:p-8'>
                                         <div>
 
                                             <div className='space-x-2'>
-                                                <span className='px-4 py-1 bg-gray-200 rounded-sm border border-gray-400 font-semibold text-gray-600 text-sm'>{cv.type}</span>
+                                                <span className='px-4 py-1 bg-gray-200 rounded-sm border border-gray-400 font-semibold text-gray-600 text-sm'>{cv.categorie}</span>
                                                 <span className='px-4 py-1 bg-[#d1f7ff] rounded-sm border border-[#3587a357] font-semibold text-[#1d686d] text-sm'>Creative</span>
                                             </div>
                                             <p className='text-4xl font-bold mt-5 '>{cv.name}</p>
@@ -77,7 +79,9 @@ export default function CVCarousel({ activeIndex, onClose, myCvData, size, activ
                                                 }
 
                                             </ul>
-                                            <button className="px-8 py-3 hover:bg-green-500 bg-green-400 font-bold text-black cursor-pointer rounded-full transition-all mt-10">utiliser ce template</button>
+                                            <LinkComponent className={"text-sm px-8"} to={"/select-cv"} variant={"tercero"} content={"utiliser ce template"} />
+
+                                           
                                         </div>
                                         <hr className='mt-14 md:mt-6 lg:mt-14 mb-5 text-gray-300'/>
                                         <div className='grid grid-cols-1 lg:grid-cols-2 gap-x-2 lg:gap-y-6 gap-y-4 text-[13px]'>

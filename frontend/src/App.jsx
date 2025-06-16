@@ -14,6 +14,7 @@ import Niveau_de_connaissance from './pages/niveau-de-connaissances'
 import ChooseTemplate from './pages/chooseTemplate'
 import { PrivateRouteAdmin } from '../hooks/privateRouteAdmin'
 import {PrivateRouteUser} from '../hooks/privateRouteUser'
+import Select_cv from './pages/select-cv'
 
 function App() {
     
@@ -40,6 +41,7 @@ function App() {
       <Route path='/creer-cv/niveau-de-connaissances' element ={<Niveau_de_connaissance/>} />
       <Route path='/creer-cv/choisir-un-template' element ={<ChooseTemplate/>} />
       <Route path='*' element={<PageNotFound />} />
+      <Route path='/select-cv' element={<Select_cv/>} />
     </Routes>
     
     

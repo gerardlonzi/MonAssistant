@@ -4,6 +4,7 @@ import Navbar from '../ui/components/navbar'
 import { Link } from 'react-router-dom'
 import { AuthContext } from "../../hooks/authHook";
 import LoaderPage from '../ui/components/loaderPage'
+import LinkComponent from '../ui/components/Link';
 
 export default function Creer_Cv() {
   const { user, isLoadding, IsWebsiteAdmin } = useContext(AuthContext);  
@@ -91,7 +92,7 @@ export default function Creer_Cv() {
           </div>
         </div>
         <div className='flex justify-center'> 
-        <Link className='px-24 font-bold text-xl rounded-full hover:bg-green-500  transition-all py-4 bg-green-400' to={"/creer-cv/niveau-de-connaissances"}>commencer</Link>
+          <LinkComponent className={"px-[5rem]"} to={"/creer-cv/niveau-de-connaissances"} variant={"tercero"} content={"commencer"}/>
         </div>
       </section>
 

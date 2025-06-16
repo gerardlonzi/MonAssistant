@@ -2,7 +2,7 @@ import React from 'react'
 import { LoaderCircle } from 'lucide-react'
 import { Link } from 'react-router-dom';
 
-export default function LinkComponent({variant,to,content}) {
+export default function LinkComponent({variant,to,content,className}) {
     let link;
     switch(variant){
         case "primary":
@@ -89,6 +89,14 @@ export default function LinkComponent({variant,to,content}) {
             <span class="relative text-base font-semibold">{content}</span>
           </Link>)
           break;
+          case "tercero":
+          link= <Link to={to} className={`px-12 py-4 hover:bg-green-500 bg-green-400 font-bold text-black cursor-pointer rounded-full inline-block transition-all text-lg mt-10 ${className}`}>{content}</Link>;
+          break;
+
+          case "quatro":
+            link= <Link  className={`px-12 py-4  hover:bg-gray-100 font-bold  cursor-pointer rounded-full transition-all text-lg outline-2 ${className}`}>{content}</Link>;
+            break;
+
           default:
             break;
     }

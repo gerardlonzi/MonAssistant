@@ -95,13 +95,13 @@ export default function Login() {
             <Input register={register} errors={errors} type={"password"} placeholder={"password"} id={"password"} htmlFor={"password"} className={""} labelName={"mot de passe"} errorMessage={"le mot de passe est requis"} required={true} isLoading={isLoading} />
             <Link className='text-center block font-bold ' to={"/forget-password"}>vous avez oublié votre mot de passe ?</Link>
             <div className='text-center'>
-              <Button text={"envoyer"} isLoadding={isLoading} type={'submit'} />
+              <Button text={"envoyer"} isLoadding={isLoading} variant={"submit"} type={'submit'} />
               <p className='mt-5 text-base/6  text-[13px]'>
                 En cliquant sur Envoyer, vous acceptez également <Link className='font-bold underline  text-green-700' to={""}>nos Conditions d'utilisation</Link>  et notre <Link className='font-bold text-green-700 underline' to={""}>Politique de confidentialité.</Link>
               </p>
               <p className='mt-4'>
                 Vous avez besoin d'un compte ? <br />
-                <Link to={"/signup"} className='font-bold '>S'inscrire gratuitement</Link>
+                <Link to={"/signup"} className='font-bold' >S'inscrire gratuitement</Link>
 
               </p>
             </div>

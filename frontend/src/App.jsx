@@ -15,6 +15,7 @@ import ChooseTemplate from './pages/chooseTemplate'
 import { PrivateRouteAdmin } from '../hooks/privateRouteAdmin'
 import {PrivateRouteUser} from '../hooks/privateRouteUser'
 import Select_cv from './pages/select-cv'
+import Edit_template from './pages/edit-template'
 
 function App() {
     
@@ -42,6 +43,7 @@ function App() {
       <Route path='/creer-cv/choisir-un-template' element ={<ChooseTemplate/>} />
       <Route path='*' element={<PageNotFound />} />
       <Route path='/select-cv' element={<Select_cv/>} />
+      <Route path='/creer-cv/edit' element={<Edit_template/>} />
     </Routes>
     
     

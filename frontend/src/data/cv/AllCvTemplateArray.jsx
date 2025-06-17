@@ -12,7 +12,7 @@ export const AllTemplatesArray = [
         img : "/imgs/cv-pictures/template001.JPG",
         caracteristic:[
             "CV à deux colonnes",
-            "ontenu d'exemple modifiable",
+            "Contenu d'exemple modifiable",
             "Téléchargez au format PDF, Word DOCX ou TXT"
         ],
         categorie:"Recommandé"
@@ -24,7 +24,7 @@ export const AllTemplatesArray = [
         img : "/imgs/cv-pictures/template001.JPG",
         caracteristic:[
             "CV à deux colonnes",
-            "ontenu d'exemple modifiable",
+            "Contenu d'exemple modifiable",
             "Téléchargez au format PDF, Word DOCX ou TXT"
         ],
         categorie:"Nouveau"

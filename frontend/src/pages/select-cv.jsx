@@ -4,6 +4,7 @@ import Navbar from '../ui/components/navbar'
 import { AuthContext } from '../../hooks/authHook'
 import LoaderPage from '../ui/components/loaderPage'
 import Button from '../ui/components/button'
+import { Link } from 'react-router-dom'
 
 export default function Select_cv() {
     const { user, isLoadding, IsWebsiteAdmin } = useContext(AuthContext);  
@@ -36,6 +37,7 @@ export default function Select_cv() {
                 <Button className={"px-[40px] sm:px-[60px] py-[13px]"} variant={"tercero"} text={"Retour"}  />
                 <Button  className={"px-[40px]  sm:px-[60px] py-[13px]"} variant={"secondary"} text={"Continuer"}  />
                 </div>
+                <Link to={"/creer-cv/edit"}>edit</Link>
             </div>
     </Container>
     </>

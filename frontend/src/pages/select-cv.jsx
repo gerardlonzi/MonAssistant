@@ -41,7 +41,7 @@ export default function Select_cv() {
                 <Button className={"px-[40px] sm:px-[60px] py-[13px]"} variant={"tercero"} text={"Retour"}  />
                 <Button  className={"px-[40px]  sm:px-[60px] py-[13px]"} variant={"secondary"} text={"Continuer"}  />
                 </div>
-                <Link to={"/creer-cv/edit/crdn"}>edit</Link>
+                <Link to={"/creer-cv/edit"}>edit</Link>
             </div>
     </Container>
     </>

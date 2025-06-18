@@ -43,57 +43,72 @@ export const NavlinkData = [
 
 export const navLinkEditTemplateStep = [
     {
-        id:uuidv4(),
+        id:1,
         name:"COORDONNÉES",
         path:"/creer-cv/edit/crdn",
         icon:<CircleUser />,
-        step:1
+        component:{
+            step:"",
+        }
+       
     },
     {
-        id:uuidv4(),
+        id:2,
         name:"EXPÉRIENCE",
         path:"/creer-cv/edit/exp",
         icon:<File/>,
-        step:2
+        component:{
+            step:"",
+        }
 
     },
     {
-        id:uuidv4(),
+        id:3,
         name:"FORMATION",
         path:"/creer-cv/edit/frmt",
         icon:<GraduationCap />,
-        step:3
+        component:{
+            step:"",
+        }
     }
     ,
     {
-        id:uuidv4(),
+        id:4,
         name:"COMPÉTENCES",
         path:"/creer-cv/edit/frmt",
         icon:<Wrench />,
-        step:4
+        component:{
+            step:"",
+        }
     }
     ,
     {
-        id:uuidv4(),
+        id:5,
         name:"PROFIL",
         path:"/creer-cv/edit/profil",
         icon:<CircleDot />,
-        step:5
+        component:{
+            step:"",
+        }
     }
     ,
     {
-        id:uuidv4(),
+        id:6,
         name:"LANGUAGE",
         path:"/creer-cv/edit/lang",
         icon:<Languages />,
-        step:6
+        component:{
+            step:"",
+        }
     }
     ,
     {
-        id:uuidv4(),
+        id:7,
         name:"FINALISATION",
         path:"/creer-cv/edit/finish",
         icon:<FilePenLine />,
-        step:7
+        component:{
+            step:"",
+        }
     }
 ]

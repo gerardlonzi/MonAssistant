@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import {navLinkEditTemplateStep} from "../data/NavlinkDatas"
+import { navLinkEditTemplateStep } from '../data/navlinkDatas'
+import EditTemplateView from './editTemplatesView'
 
 
 export default function EditTemplateContainer() {
@@ -33,7 +34,7 @@ export default function EditTemplateContainer() {
 
 
     return(
-
+        <EditTemplateView  getCurrenStep={GetcurrenStep} Next={Next} Prev={Prev} IsFirstStep={IsFirstStep} IsLastStep={IsLastStep} NavLinkEditTemplates={navLinkEditTemplateStep}/>
     )
 
 }

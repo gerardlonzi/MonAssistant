@@ -1,6 +1,7 @@
 import { v4 as uuidv4 } from 'uuid'
 import { Template001 } from './CvTemplatesComponent'
 import { Template002 } from './CvTemplatesComponent'
+import { Template003 } from './CvTemplatesComponent'
 
 
         

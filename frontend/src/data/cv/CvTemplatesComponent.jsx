@@ -391,3 +391,102 @@ export function Template002({
 
 
 
+export function Template003({
+  myCvData,
+  activeColor = '#08084d',
+  hoverPalette,
+  usePicture = true,
+  size = 'md',
+  className = '',
+  styleMap = {},
+}) {
+  const sizeVariants = {
+    sm: {
+      root: 'flex w-[15rem] h-[21rem] overflow-hidden',
+      leftPanel: 'w-[6rem] bg-[#08084d] text-white px-4 py-6 flex flex-col items-center',
+      rightPanel: 'w-[9rem] bg-white text-gray-700 px-6 py-6',
+      image: 'w-16 h-16 rounded-full mx-auto mb-4',
+      title: 'text-xs font-semibold mb-2',
+      content: 'text-[8px] mb-3',
+      list: 'list-disc ml-4 text-xs',
+      sectionTitle: 'text-xs font-semibold text-[#08084d]',
+    },
+    md: {
+      root: 'flex w-[20rem] h-[28rem] overflow-hidden',
+      leftPanel: 'w-[8rem] bg-[#08084d] text-white px-5 py-8 flex flex-col items-center',
+      rightPanel: 'w-[12rem] bg-white text-gray-700 px-7 py-8',
+      image: 'w-20 h-20 rounded-full mx-auto mb-5',
+      title: 'text-sm font-semibold mb-2',
+      content: 'text-[12px] mb-4',
+      list: 'list-disc ml-5 text-sm',
+      sectionTitle: 'text-sm font-semibold text-[#08084d]',
+    },
+    lg: {
+      root: 'flex w-[25rem] h-[34rem] overflow-hidden',
+      leftPanel: 'w-[10rem] bg-[#08084d] text-white px-6 py-10 flex flex-col items-center',
+      rightPanel: 'w-[15rem] bg-white text-gray-700 px-8 py-10',
+      image: 'w-24 h-24 rounded-full mx-auto mb-6',
+      title: 'text-lg font-semibold mb-3',
+      content: 'text-[14px] mb-5',
+      list: 'list-disc ml-6 text-lg',
+      sectionTitle: 'text-lg font-semibold text-[#08084d]',
+    },
+  };
+
+  const styles = sizeVariants[size];
+
+  return (
+    <section className={`${styles.root} ${className}`}>
+      {/* Section gauche */}
+      <section className={styles.leftPanel}>
+        {usePicture && (
+          <div className={styles.image}>
+            <img src="/imgs/mirabel.jpg" alt="profile picture" className="object-cover w-full h-full rounded-full" />
+          </div>
+        )}
+        <p className={styles.title}>Contact</p>
+        <div className={styles.content}>
+          {myCvData.contact.map((el, index) => (
+            <p key={index}>{el.infos}</p>
+          ))}
+        </div>
+        <p className={styles.title}>Compétences</p>
+        <ul className={styles.list}>
+          {myCvData.compétences.map((el, index) => (
+            <li key={index}>{el}</li>
+          ))}
+        </ul>
+      </section>
+
+      {/* Section droite */}
+      <section className={styles.rightPanel}>
+        <p className={styles.title} style={{ color: hoverPalette || activeColor }}>{myCvData.name}</p>
+        <p className="text-sm text-[#08084d]">{myCvData.profession}</p>
+        <p className={styles.content}>{myCvData.profile}</p>
+
+        <p className={styles.sectionTitle} style={{ color: hoverPalette || activeColor }}>Expériences</p>
+        {myCvData.experience.map((el, index) => (
+          <div key={index} className="mb-4">
+            <div className="font-semibold flex items-center">
+              <span>{el.poste}</span>
+              <span className="text-sm text-gray-500 ml-2">({el.debut} - {el.fin})</span>
+            </div>
+            <ul className={styles.list}>
+              {el.Activites.map((activity, activityIndex) => (
+                <li key={activityIndex}>{activity}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+
+        <p className={styles.sectionTitle} style={{ color: hoverPalette || activeColor }}>Formations</p>
+        {myCvData.formation.map((el, index) => (
+          <div key={index} className="mb-4">
+            <div className="font-semibold">{el.diplome}</div>
+            <p className="text-sm text-gray-500">{el.ecole} - {el.lieux}</p>
+          </div>
+        ))}
+      </section>
+    </section>
+  );
+}

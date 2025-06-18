@@ -1,4 +1,4 @@
-import { NavlinkData } from "../../data/navlinkData"
+import { NavlinkData } from "../../data/navlinkDatas"
 import { Link } from "react-router-dom"
 import { useLocation,useNavigate } from "react-router-dom"
 import { useMemo, useState } from "react"

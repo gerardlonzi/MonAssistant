@@ -1,5 +1,6 @@
 import { BriefcaseBusiness, CircleUser, FileText, Heart,FileUser,FileChartColumn,Gem,File,GraduationCap,Wrench,CircleDot,Languages,FilePenLine} from "lucide-react"
 import { v4 as uuidv4 } from 'uuid'
+import Coordonnees from "../pages/editTemplates/coordonnes";
 
         
 
@@ -45,17 +46,17 @@ export const navLinkEditTemplateStep = [
     {
         id:1,
         name:"COORDONNÉES",
-        path:"/creer-cv/edit/crdn",
+        path:"/creer-cv/edit-template/crdn",
         icon:<CircleUser />,
         component:{
-            step:"",
+            step: Coordonnees,
         }
        
     },
     {
         id:2,
         name:"EXPÉRIENCE",
-        path:"/creer-cv/edit/exp",
+        path:"/creer-cv/edit-template/exp",
         icon:<File/>,
         component:{
             step:"",
@@ -65,7 +66,7 @@ export const navLinkEditTemplateStep = [
     {
         id:3,
         name:"FORMATION",
-        path:"/creer-cv/edit/frmt",
+        path:"/creer-cv/edit-template/frmt",
         icon:<GraduationCap />,
         component:{
             step:"",
@@ -75,7 +76,7 @@ export const navLinkEditTemplateStep = [
     {
         id:4,
         name:"COMPÉTENCES",
-        path:"/creer-cv/edit/frmt",
+        path:"/creer-cv/edit-template/frmt",
         icon:<Wrench />,
         component:{
             step:"",
@@ -85,7 +86,7 @@ export const navLinkEditTemplateStep = [
     {
         id:5,
         name:"PROFIL",
-        path:"/creer-cv/edit/profil",
+        path:"/creer-cv/edit-template/profil",
         icon:<CircleDot />,
         component:{
             step:"",
@@ -95,7 +96,7 @@ export const navLinkEditTemplateStep = [
     {
         id:6,
         name:"LANGUAGE",
-        path:"/creer-cv/edit/lang",
+        path:"/creer-cv/edit-template/lang",
         icon:<Languages />,
         component:{
             step:"",
@@ -105,7 +106,7 @@ export const navLinkEditTemplateStep = [
     {
         id:7,
         name:"FINALISATION",
-        path:"/creer-cv/edit/finish",
+        path:"/creer-cv/edit-template/finish",
         icon:<FilePenLine />,
         component:{
             step:"",

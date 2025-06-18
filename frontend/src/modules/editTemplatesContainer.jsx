@@ -31,10 +31,13 @@ export default function EditTemplateContainer() {
    function IsLastStep(){
        return currentStep === navLinkEditTemplateStep.length
    }
+   function StepComplete(){
+       return true
+   }
 
 
     return(
-        <EditTemplateView  getCurrenStep={GetcurrenStep} Next={Next} Prev={Prev} IsFirstStep={IsFirstStep} IsLastStep={IsLastStep} NavLinkEditTemplates={navLinkEditTemplateStep}/>
+        <EditTemplateView  getCurrenStep={GetcurrenStep} Next={Next} Prev={Prev} IsFirstStep={IsFirstStep} IsLastStep={IsLastStep} NavLinkEditTemplates={navLinkEditTemplateStep} StepComplete={StepComplete}/>
     )
 
 }

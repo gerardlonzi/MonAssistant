@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import { navLinkEditTemplateStep } from '../data/navlinkDatas'
 import EditTemplateView from './editTemplatesView'
+import { Navigate } from 'react-router-dom'
 
 
 export default function EditTemplateContainer() {
    const [currentStep,setCurrenStep]= useState(1)
+   const [StepCompleted,setStepCompleted]= useState(false)
 
    function GetcurrenStep(){
-
         return navLinkEditTemplateStep.find(el => el.id === currentStep) 
 
    }
@@ -19,8 +20,9 @@ export default function EditTemplateContainer() {
    }
 
    function Next(){
-    if(currentStep > navLinkEditTemplateStep.length){
-        return setCurrenStep(currentStep+1)
+    if(currentStep < navLinkEditTemplateStep.length){
+        setCurrenStep(currentStep+1)
+        return <Navigate to={`${GetcurrenStep()?.path}`} />
     }
    }
 
@@ -31,13 +33,11 @@ export default function EditTemplateContainer() {
    function IsLastStep(){
        return currentStep === navLinkEditTemplateStep.length
    }
-   function StepComplete(){
-       return true
-   }
 
-
+   
     return(
-        <EditTemplateView  getCurrenStep={GetcurrenStep} Next={Next} Prev={Prev} IsFirstStep={IsFirstStep} IsLastStep={IsLastStep} NavLinkEditTemplates={navLinkEditTemplateStep} StepComplete={StepComplete}/>
+        <EditTemplateView  getCurrenStep={GetcurrenStep} Next={Next} Prev={Prev} IsFirstStep={IsFirstStep} IsLastStep={IsLastStep} NavLinkEditTemplates={navLinkEditTemplateStep} StepComplete={StepCompleted}/>
     )
 
 }
+

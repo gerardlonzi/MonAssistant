@@ -1,23 +1,24 @@
 import { motion } from "framer-motion";
-import { useState,useContext } from "react";
-import Navbar from "../ui/components/navbar";
-import Container from "../ui/components/container"
-import { colorThemes } from "../data/ColorTemplateData";
-import { AuthContext } from "../../hooks/authHook";
-import LoaderPage from '../ui/components/loaderPage'
-import { Check } from "lucide-react";
-import { cvData } from "../data/cv/cvInfos";
-import { AllTemplatesArray } from "../data/cv/AllCvTemplateArray";
-import useBoolean from '../../hooks/boolean'
 import { ZoomIn } from "lucide-react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../hooks/authHook";
+import useBoolean from '../../hooks/boolean';
+import { colorThemes } from "../data/ColorTemplateData";
+import { AllTemplatesArray } from "../data/cv/AllCvTemplateArray";
+import { cvData } from "../data/cv/cvInfos";
 import CVCarousel from "../ui/components/CarouselModal";
 import ColorPicker from "../ui/components/colorPicker";
-import { Link } from "react-router-dom";
+import Container from "../ui/components/container";
 import LinkComponent from "../ui/components/Link";
+import LoaderPage from '../ui/components/loaderPage';
+import Navbar from "../ui/components/navbar";
+import { useDispatch} from "react-redux";
+import { createOrUpdateCv } from "../redux/slices";
 
 const tabs = ["Recommandé", "Nouveau", "Tout"];
 
 export default function ChooseTemplate() {
+
   const [selected, setSelected] = useState(tabs[0]);
   const [AllTemplatesArrayState, setAllTemplatesArrayState] = useState(AllTemplatesArray.filter(el=>el.categorie===tabs[0]));
   const [activeColor, setActiveColor] = useState(null);
@@ -31,6 +32,19 @@ export default function ChooseTemplate() {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const { user, isLoadding, IsWebsiteAdmin } = useContext(AuthContext);  
+  const dispatch= useDispatch()
+
+  function HandleSelectCv(id){
+    dispatch(createOrUpdateCv({
+      currentCv: {
+        id:id,
+        activeColor: activeColor
+      },
+  }))
+
+  }
+
+
 
 
   const handleTemplateClick = (index) => {
@@ -109,7 +123,7 @@ export default function ChooseTemplate() {
                         <ZoomIn strokeWidth={3} />
                         </div>
                         <div className="absolute bottom-5 flex justify-center  w-full">
-                          <LinkComponent className={"text-sm px-8"} to={"/select-cv"} variant={"tercero"} content={"utiliser ce template"} />
+                          <LinkComponent onClick={()=>HandleSelectCv(template.id)} className={"text-sm px-8"} to={"/select-cv"} variant={"tercero"} content={"utiliser ce template"} />
                         
                         </div>
                     </div>

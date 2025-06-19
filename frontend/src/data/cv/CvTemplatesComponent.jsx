@@ -195,7 +195,6 @@ export function Template002({
   hoverPalette,
   usePicture = true,
   size = 'md',
-  className = '',
   styleMap = {},
 }) {
   const sizeVariants = {

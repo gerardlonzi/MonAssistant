@@ -1,6 +1,7 @@
 import { BriefcaseBusiness, CircleUser, FileText, Heart,FileUser,FileChartColumn,Gem,File,GraduationCap,Wrench,CircleDot,Languages,FilePenLine} from "lucide-react"
 import { v4 as uuidv4 } from 'uuid'
 import Coordonnees from "../pages/editTemplates/coordonnes";
+import Experience from "../pages/editTemplates/experience";
 
         
 
@@ -59,7 +60,7 @@ export const navLinkEditTemplateStep = [
         path:"/creer-cv/edit-template/exp",
         icon:<File/>,
         component:{
-            step:"",
+            step:Experience,
         }
 
     },

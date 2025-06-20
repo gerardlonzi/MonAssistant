@@ -16,6 +16,7 @@ import { PrivateRouteAdmin } from '../hooks/privateRouteAdmin'
 import {PrivateRouteUser} from '../hooks/privateRouteUser'
 import Select_cv from './pages/select-cv'
 import EditTemplatesPage from './pages/editTemplates/editTemplatesPage'
+import Experience from './pages/editTemplates/experience'
 
 function App() {
     
@@ -44,6 +45,7 @@ function App() {
       <Route path='*' element={<PageNotFound />} />
       <Route path='/select-cv' element={<Select_cv/>} />
       <Route path='/creer-cv/edit-template/crdn' element={<EditTemplatesPage/>} />
+      <Route path='/creer-cv/edit-template/exp' element={<Experience/>} />
     </Routes>
     
     

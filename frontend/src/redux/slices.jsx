@@ -9,13 +9,17 @@ const cvSlice = createSlice({
     initialState,
     reducers: {
       createOrUpdateCv: (state, action) => {
-        if (state.currentCv) {
-          state.currentCv = { ...state.currentCv, ...action.payload }
-        } else {
+        if (!state.currentCv) {
           state.currentCv = {
             id: uuidv4(),
+            experience: action.payload.experience,
             ...action.payload
-          }
+          };
+        } else {
+          state.currentCv = {
+            ...state.currentCv,
+            ...action.payload
+          };
         }
       },
       resetCv: (state) => {

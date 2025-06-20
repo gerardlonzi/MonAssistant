@@ -36,10 +36,8 @@ export default function ChooseTemplate() {
 
   function HandleSelectCv(id){
     dispatch(createOrUpdateCv({
-      currentCv: {
-        id:id,
+        TemplateId:id,
         activeColor: activeColor
-      },
   }))
 
   }

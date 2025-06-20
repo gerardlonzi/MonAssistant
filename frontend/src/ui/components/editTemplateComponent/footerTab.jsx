@@ -6,7 +6,7 @@ export default function FooterStep({Next,Prev,IsFirstStep,IsLastStep,isLoadding}
      let footer 
 
      if(IsFirstStep()){
-        footer = <div className="w-full fixed bottom-0 z-20 flex justify-end"><Button className={"px-16 py-3 inline-block"} type={"submit"} onClick={Next} isLoadding={isLoadding} text={"Continuer"} variant={"secondary"}/></div>
+        footer = <div className="w-full bg-white sticky bottom-0 left-0 py-4 z-50 mt-5 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] flex justify-end"><Button className={"px-16 py-3 inline-block"} type={"submit"} onClick={Next} isLoadding={isLoadding} text={"Continuer"} variant={"secondary"}/></div>
         
      }
      if(IsLastStep()){

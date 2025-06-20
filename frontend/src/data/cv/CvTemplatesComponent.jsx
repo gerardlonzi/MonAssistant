@@ -84,12 +84,21 @@ export function Template001({
         <section>
           <p className={`font-bold ${styles.text_title} ${styles.margin_Side}`}>CONTACT</p>
           <div className={`${styles.contactSpaceX} `}>
-            {myCvData.contact?.map((el, index) => (
-              <div key={index} className={`flex ${styles.contactContentGap} `}>
-                <span className={`text-blue-400 ${styles.iconSize}`}>{el.icon}</span>
-                <span>{el.infos}</span>
-              </div>
-            ))}
+           
+          {
+  myCvData.contact?.map((el, index) => {
+    return (
+      <div key={index} className={`flex ${styles.contactContentGap}`}>
+        <span className={`text-blue-400 ${styles.iconSize}`}>{el?.icon}</span>
+        {
+          (el.infos?.ville || el.infos?.pays)
+            ? <span>{el.infos.ville}, {el.infos .pays}</span>
+            : <span>{el?.infos}</span>
+        }
+      </div>
+    );
+  })
+}
           </div>
         </section>
 
@@ -305,11 +314,17 @@ export function Template002({
         <section>
           <p className={` ${styles.text_title}`}>INFORMATIONS</p>
           <div className={` ${styles.text_under_title_leftSide}`}>
-            {
-              myCvData.contact.map((el, index) =>
-                <div key={index} ><span>{el?.infos && el?.infos}</span></div>
-              )
-            }
+          {
+  myCvData.contact?.map((el, index) => (
+    <div key={index}>
+      <span>
+        {el.infos?.ville && el.infos?.pays
+          ? `${el.infos.ville}, ${el.infos.pays}`
+          : el.infos}
+      </span>
+    </div>
+  ))
+}
           </div>
         </section>
         <hr className={`${styles.hr_marge}`} />

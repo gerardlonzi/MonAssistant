@@ -10,11 +10,28 @@ export default function CvSelected(){
     },[currentCv])
 console.log(currentCVSave);
 
-
+// TemplateId
+// : 
+// "f41d2f11-971d-4dfe-9940-8fcb4ce21807"
+// activeColor
+// : 
+// "#dc143c"
+// experience
+// : 
+// "5-10 ans d'experience"
+// id
+// : 
+// "eca18bd3-d924-4d96-9fb7-ed28921e9186"
+let Cv;
+if(currentCVSave){
+     Cv=  AllCvTemplateArray?.find(el=>el.id===currentCVSave?.TemplateId)
+}
 
     return(
        <div>
-        hello world 
+        {
+          Cv.name
+        }
        </div>
     )
 }

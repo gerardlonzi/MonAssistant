@@ -10,9 +10,7 @@ export default function EditTemplatesPage() {
     <section>
       <div>
         <EditTemplateContainer/>
-        <div>
-        <Outlet/>
-        </div>
+       
       </div>
     </section>
   )

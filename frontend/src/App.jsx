@@ -17,6 +17,8 @@ import {PrivateRouteUser} from '../hooks/privateRouteUser'
 import Select_cv from './pages/select-cv'
 import EditTemplatesPage from './pages/editTemplates/editTemplatesPage'
 import Experience from './pages/editTemplates/experience'
+import Coordonnees from './pages/editTemplates/coordonnes'
+import Formation from './pages/editTemplates/formation'
 
 function App() {
     
@@ -44,8 +46,12 @@ function App() {
       <Route path='/creer-cv/choisir-un-template' element ={<ChooseTemplate/>} />
       <Route path='*' element={<PageNotFound />} />
       <Route path='/select-cv' element={<Select_cv/>} />
-      <Route path='/creer-cv/edit-template/crdn' element={<EditTemplatesPage/>} />
-      <Route path='/creer-cv/edit-template/exp' element={<Experience/>} />
+      <Route path='/creer-cv/edit-template' element={<EditTemplatesPage/>} >
+        <Route path='crdn' element={<Coordonnees/>}/>
+        <Route path='exp' element={<Experience/>} />
+        <Route path='frmt' element={<Formation/>} />
+      </Route>
+      
     </Routes>
     
     

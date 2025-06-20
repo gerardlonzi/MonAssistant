@@ -1,11 +1,11 @@
 import React from "react";
 import SidebarEditTemplate from "../../ui/components/editTemplateComponent/sidebar";
 
-export default function Experience({getCurrenStep,Next,Prev,IsFirstStep,IsLastStep,NavLinkEditTemplates,StepsCompleted}){
+export default function Experience({getCurrenStep,Next,Prev,IsFirstStep,IsLastStep,NavLinkEditTemplates,StepsCompleted,setCurrenStep}){
 
     return(
         <section className="flex">
-        <SidebarEditTemplate StepsCompleted={StepsCompleted} NavLinkEditTemplates={NavLinkEditTemplates} getCurrentStep={getCurrenStep} />
+        <SidebarEditTemplate StepsCompleted={StepsCompleted} NavLinkEditTemplates={NavLinkEditTemplates} getCurrentStep={getCurrenStep} setCurrenStep={setCurrenStep} />
         <div className="px-7 py-9">
             
 

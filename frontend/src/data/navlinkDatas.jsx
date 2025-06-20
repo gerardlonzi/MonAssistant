@@ -2,6 +2,7 @@ import { BriefcaseBusiness, CircleUser, FileText, Heart,FileUser,FileChartColumn
 import { v4 as uuidv4 } from 'uuid'
 import Coordonnees from "../pages/editTemplates/coordonnes";
 import Experience from "../pages/editTemplates/experience";
+import Formation from "../pages/editTemplates/experience";
 
         
 
@@ -47,7 +48,7 @@ export const navLinkEditTemplateStep = [
     {
         id:1,
         name:"COORDONNÉES",
-        path:"/creer-cv/edit-template/crdn",
+        path:"crdn",
         icon:<CircleUser />,
         component:{
             step: Coordonnees,
@@ -70,7 +71,7 @@ export const navLinkEditTemplateStep = [
         path:"/creer-cv/edit-template/frmt",
         icon:<GraduationCap />,
         component:{
-            step:"",
+            step:Formation,
         }
     }
     ,

@@ -1,11 +1,12 @@
 import React from "react";
 import SidebarEditTemplate from "../../ui/components/editTemplateComponent/sidebar";
+import CvSelected from "../../ui/components/editTemplateComponent/cvSelected";
 
-export default function Coordonnees({getCurrenStep,Next,Prev,IsFirstStep,IsLastStep,NavLinkEditTemplates,StepsCompleted}){
+export default function Coordonnees({getCurrenStep,Next,Prev,IsFirstStep,IsLastStep,NavLinkEditTemplates,StepsCompleted,setCurrenStep}){
 
     return(
         <section className="flex">
-        <SidebarEditTemplate StepsCompleted={StepsCompleted} NavLinkEditTemplates={NavLinkEditTemplates} getCurrentStep={getCurrenStep} />
+        <SidebarEditTemplate StepsCompleted={StepsCompleted} NavLinkEditTemplates={NavLinkEditTemplates} getCurrentStep={getCurrenStep} setCurrenStep={setCurrenStep}/>
         <div className="px-7 py-9">
             <div>
                 <div>
@@ -17,10 +18,11 @@ export default function Coordonnees({getCurrenStep,Next,Prev,IsFirstStep,IsLastS
                 next step
             </button>
             </div>
-            <div>
-
-            </div>
            
+           
+        </div>
+        <div>
+            <CvSelected/>
         </div>
         </section>
     

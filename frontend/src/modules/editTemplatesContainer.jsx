@@ -37,8 +37,9 @@ export default function EditTemplateContainer() {
 
    function Next(){
     if(CurrentStep < navLinkEditTemplateStep.length){
+      markStepAsCompleted(CurrentStep)
+
         const nextStep = CurrentStep+1
-        markStepAsCompleted(CurrentStep)
         setCurrenStep(nextStep)
         const nextPath = navLinkEditTemplateStep.find(el => el.id === nextStep)?.path;
         if (nextPath) {
@@ -58,7 +59,7 @@ export default function EditTemplateContainer() {
 
    
     return(
-        <EditTemplateView  getCurrenStep={getCurrenStep} Next={Next} Prev={Prev} IsFirstStep={IsFirstStep} IsLastStep={IsLastStep} NavLinkEditTemplates={navLinkEditTemplateStep} StepsComplete={StepsCompleted}/>
+        <EditTemplateView setCurrenStep={setCurrenStep}  getCurrenStep={getCurrenStep} Next={Next} Prev={Prev} IsFirstStep={IsFirstStep} IsLastStep={IsLastStep} NavLinkEditTemplates={navLinkEditTemplateStep} StepsCompleted={StepsCompleted}/>
     )
 
 }

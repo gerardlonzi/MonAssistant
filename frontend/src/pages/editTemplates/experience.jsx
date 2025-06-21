@@ -1,5 +1,7 @@
 import React from "react";
 import SidebarEditTemplate from "../../ui/components/editTemplateComponent/sidebar";
+import FooterStep from "../../ui/components/editTemplateComponent/footerTab";
+
 
 export default function Experience({getCurrenStep,Next,Prev,IsFirstStep,IsLastStep,NavLinkEditTemplates,StepsCompleted,setCurrenStep}){
 
@@ -9,9 +11,8 @@ export default function Experience({getCurrenStep,Next,Prev,IsFirstStep,IsLastSt
         <div className="px-7 py-9">
             
 
-            <button className="bg-green-600 p-4 ml-5" onClick={Next}>
-                next step
-            </button>
+        <FooterStep Next={Next} Prev={Prev} IsFirstStep={IsFirstStep} IsLastStep={IsLastStep} isLoadding={false}/>
+
            
            
         </div>

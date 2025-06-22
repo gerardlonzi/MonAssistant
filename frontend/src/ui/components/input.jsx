@@ -16,7 +16,7 @@ console.log(onChange);
         <div className='flex flex-col w-full'>
           <label className={clsx(required && "after:content-['*'] after:text-red-700 after:text-xl after:ml-[0.5px]",`mb-[1px] uppercase text-sm font-bold text-[#00275b] ${label_className}`)} htmlFor={htmlFor}>{labelName}</label>
           <div className='relative'>
-            <input onChange={onChange()} className={clsx(errors[id] ? "text-red-600 border border-red-600 placeholder:text-red-600 " : ` border border-[#00275b]", "w-full rounded-sm  px-2 py-2 focus:outline-0 ${className} `)} autoComplete='off' disabled={isLoading} type={EyeOn?"text":type} placeholder={placeholder} id={id} {...register(id, {
+            <input onChange={onChange} className={clsx(errors[id] ? "text-red-600 border border-red-600 placeholder:text-red-600 " : ` border border-[#00275b]", "w-full rounded-sm  px-2 py-2 focus:outline-0 ${className} `)} autoComplete='off' disabled={isLoading} type={EyeOn?"text":type} placeholder={placeholder} id={id} {...register(id, {
               required: {
                 value: required, message: errorMessage
               }

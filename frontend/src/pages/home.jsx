@@ -15,9 +15,9 @@ export default function Home() {
   return (
     <>
         <Navbar user={user} IsWebsiteAdmin={IsWebsiteAdmin} />
-      <Container className="pt-14 pb-14 md:pt-20 bg-[#001f49] md:bg-white">
+      <Container className="pt-14 pb-14  h-[100vh] md:pt-20 bg-[#001f49] md:bg-white">
         <section>
-        <div className="flex flex-col  md:flex-row items-center  mt-28 ">
+        <div className="flex flex-col  md:flex-row items-center mt-20 sm:mt-28 ">
           <div className="">
             <h1 className="md:text-6xl md:text-black  text-white text-4xl text-center font-bold leading-14 md:leading-18"><span className="text-[#7f76ff]">Le CV </span><br/> qui décroche le poste...  facilement</h1>
             <div className='text-xl w-full text-slate-400 md:text-[#00275b] flex flex-col justify-center space-y-4 mt-12'>

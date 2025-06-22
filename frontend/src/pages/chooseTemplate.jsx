@@ -114,18 +114,28 @@ export default function ChooseTemplate() {
                   animate={{ opacity: 1, y: 0, rotate: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1, type: "spring" }}
                 >
-                  <div key={template.id} className="rounded-xl  group relative  hover:outline-2 outline-black overflow-hidden shadow-md w-[15rem] ">
+                  <IsOnhoverTemplate template={template} >
+                    {
+                      (onHoverTemplate)=>(
+                        <>
                     <TemplateComponent myCvData={myCvData} activeColor={activeColor} hoverPalette={hoverPalette} usePicture={usePicture} size={'sm'} />
-                    <div className="hidden group-hover:block transition-all">
-                       <div className="absolute p-3 hover:bg-purple-500 transition-all bg-purple-400 rounded-full top-3 right-3 " onClick={() => handleTemplateClick(index)}>
-                        <ZoomIn strokeWidth={3} />
-                        </div>
-                        <div className="absolute bottom-5 flex justify-center  w-full">
-                          <LinkComponent onClick={()=>HandleSelectCv(template.id)} className={"text-sm px-8"} to={"/select-cv"} variant={"tercero"} content={"utiliser ce template"} />
-                        
-                        </div>
-                    </div>
-                  </div>
+                     {
+                      onHoverTemplate && ( <div className="transition-all">
+                      <div className="absolute p-3 hover:bg-purple-500 transition-all bg-purple-400 rounded-full top-3 right-3 " onClick={() => handleTemplateClick(index)}>
+                       <ZoomIn strokeWidth={3} />
+                       </div>
+                       <div className="absolute bottom-5 flex justify-center  w-full">
+                         <LinkComponent onClick={()=>HandleSelectCv(template.id)} className={"text-sm px-8"} to={"/select-cv"} variant={"tercero"} content={"utiliser ce template"} />
+                       
+                       </div>
+                      </div> )
+                     }
+                     </>
+                      )
+                    }
+                  
+                  </IsOnhoverTemplate>
+                
                   </motion.div>
                 )
               })
@@ -180,3 +190,14 @@ const Chip = ({
     </button>
   );
 };
+
+function IsOnhoverTemplate({children,template}){
+  const [onHoverTemplate, setOnhoverTemplate] = useState(false);
+
+  return <div key={template.id} className="rounded-xl   relative  hover:outline-2 outline-black overflow-hidden shadow-md w-[15rem] " onMouseEnter={() => setOnhoverTemplate(!onHoverTemplate)}
+  onMouseLeave={() => setOnhoverTemplate(!onHoverTemplate)}>
+           {
+            children(onHoverTemplate)
+           }
+           </div>
+}

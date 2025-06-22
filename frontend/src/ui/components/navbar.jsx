@@ -65,7 +65,7 @@ export default function Navbar({ user, IsWebsiteAdmin }) {
             exit="exit"
             variants={menuVariants}
             transition={{ duration: 0.4 }}
-            className="lg:hidden fixed top-0 right-0 h-full w-3/4 bg-[#001230] md:bg-white shadow-lg z-40 p-6"
+            className="lg:hidden fixed top-0 right-0 h-[100vh] w-3/4 bg-[#001230] md:bg-white shadow-lg z-40 p-6"
           >
             <div>
               <div className="flex justify-between mb-5">

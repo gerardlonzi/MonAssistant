@@ -1,7 +1,7 @@
 import { NavlinkData } from "../../data/navlinkDatas"
 import { Link } from "react-router-dom"
 import { useLocation,useNavigate } from "react-router-dom"
-import { useMemo, useState } from "react"
+import { useMemo, useState, useEffect} from "react"
 import clsx from "clsx"
 import { Menu, UserRound, LogIn, X,CornerUpLeft } from "lucide-react"
 import { motion, AnimatePresence } from 'framer-motion'
@@ -9,6 +9,11 @@ import { motion, AnimatePresence } from 'framer-motion'
 export default function Navbar({ user, IsWebsiteAdmin }) {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
 
   const handleGoBack = () => {
     navigate(-1);

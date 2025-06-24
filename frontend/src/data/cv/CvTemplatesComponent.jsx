@@ -91,9 +91,9 @@ export function Template001({
       <div key={index} className={`flex ${styles.contactContentGap}`}>
         <span className={`text-blue-400 ${styles.iconSize}`}>{el?.icon}</span>
         {
-          (el.infos?.ville || el.infos?.pays)
-            ? <span>{el.infos.ville}, {el.infos .pays}</span>
-            : <span>{el?.infos}</span>
+          typeof el.infos === 'object' && el.infos !== null
+            ? <span>{el.infos.ville} {el.infos.pays}</span> 
+            : <span>{el?.infos}</span> 
         }
       </div>
     );
@@ -318,9 +318,9 @@ export function Template002({
   myCvData.contact?.map((el, index) => (
     <div key={index}>
       <span>
-        {el.infos?.ville && el.infos?.pays
+        {typeof el.infos === 'object' && el.infos !== null
           ? `${el.infos.ville}, ${el.infos.pays}`
-          : el.infos}
+          : el?.infos}
       </span>
     </div>
   ))

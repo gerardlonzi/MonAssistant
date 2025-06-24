@@ -85,21 +85,41 @@ export default function Coordonnees({ getCurrenStep, Next, Prev, IsFirstStep, Is
                                 <input type="text" onChange={(e) => setEmptycvData({ ...emptycvData, prename: e.target.value || "Prenom" })} />
                                 <div className="space-y-6 px-9">
                                     <div className="flex gap-8">
-                                        <Input register={register} errors={errors} type={"text"} placeholder={"Lonzi"} id={"name"} htmlFor={"name"} className={"py-[7px] placeholder:text-[15px] mt-[4px] "} label_className={"text-[11px]"} labelName={"Nom"} errorMessage={"votre nom est réquis"} required={true} isLoading={isLoading} onChange={(e) => setEmptycvData({ ...emptycvData, name: e.target.value || "Nom" })} />
-                                        <Input register={register} errors={errors} type={"text"} placeholder={"france"} id={"country"} htmlFor={"country"} className={"py-[7px] placeholder:text-[15px] mt-[4px] "} label_className={"text-[11px]"} labelName={"Pays / Region"} errorMessage={"votre pays est réquis"} required={true} isLoading={isLoading} onChange={(e) => setEmptycvData({ ...emptycvData, name: e.target.value || "Pays" })} />
+                                        <Input register={register} errors={errors} type={"text"} placeholder={"Lonzi"} id={"nom"} htmlFor={"nom"} className={"py-[7px] placeholder:text-[15px] mt-[4px] "} label_className={"text-[11px]"} labelName={"Nom"} errorMessage={"votre nom est réquis"} required={true} isLoading={isLoading} onChange={(e) => setEmptycvData({ ...emptycvData, name: e.target.value || "Nom" })} />
+
+                                        <Input register={register} errors={errors} type={"text"} placeholder={"france"} id={"pays"} htmlFor={"pays"} className={"py-[7px] placeholder:text-[15px] mt-[4px] "} label_className={"text-[11px]"} labelName={"Pays / Region"} errorMessage={"votre pays est réquis"} required={true} isLoading={isLoading} onChange={(e) => setEmptycvData({ ...emptycvData, contact: emptycvData.contact.map((c, index) =>
+                                        index === 2 
+                                            ? { ...c, infos: { ...c.infos, pays: e.target.value || "Pays" } } 
+                                            : c 
+                                        ) })} />
 
                                     </div>
                                     <div>
                                         <Input register={register} errors={errors} type={"text"} placeholder={"40 Entree Simbock,Rt 67"} id={"adresse_postale"} htmlFor={"adresse_postale"} className={"py-[7px] placeholder:text-[15px] mt-[4px] "} label_className={"text-[11px]"} labelName={"Adresse Postale (FACULTATIF)"} required={false} isLoading={isLoading} onChange={(e) => setEmptycvData({ ...emptycvData, prename: e.target.value || "Adresse Postale" })} />
                                     </div>
                                     <div className="flex gap-8">
-                                        <Input register={register} errors={errors} type={"text"} placeholder={"40456"} id={"code_postal"} htmlFor={"code_postal"} className={"py-[7px] placeholder:text-[15px] mt-[4px] "} label_className={"text-[11px]"} labelName={"Code Postal "} required={false} isLoading={isLoading} onChange={(e) => setEmptycvData({ ...emptycvData, prename: e.target.value || "Code Postal" })} />
-                                        <Input register={register} errors={errors} type={"text"} placeholder={"London"} id={"ville"} htmlFor={"ville"} className={"py-[7px] placeholder:text-[15px] mt-[4px] "} label_className={"text-[11px]"} labelName={"Ville"} required={false} isLoading={isLoading} onChange={(e) => setEmptycvData({ ...emptycvData, prename: e.target.value || "Ville" })} />
+                                        <Input register={register} errors={errors} type={"text"} placeholder={"40456"} id={"code_postal"} htmlFor={"code_postal"} className={"py-[7px] placeholder:text-[15px] mt-[4px] "} label_className={"text-[11px]"} labelName={"Code Postal "} required={false} isLoading={isLoading} onChange={(e) => setEmptycvData({ 
+                                            ...emptycvData, prename: e.target.value || "Code Postal"})} />
+
+                                        <Input register={register} errors={errors} type={"text"} placeholder={"London"} id={"ville"} htmlFor={"ville"} className={"py-[7px] placeholder:text-[15px] mt-[4px] "} label_className={"text-[11px]"} labelName={"Ville"} required={false} isLoading={isLoading} onChange={(e) => setEmptycvData({ ...emptycvData, contact: emptycvData.contact.map((c, index) =>
+                                        index === 2 
+                                            ? { ...c, infos: { ...c.infos, ville: e.target.value || "ville" } } 
+                                            : c 
+                                        ) })}  />
 
                                     </div>
                                     <div className="flex gap-8">
-                                        <Input register={register} errors={errors} type={"number"} placeholder={"40456789"} id={"telephone"} htmlFor={"telephone"} className={"py-[7px] placeholder:text-[15px] mt-[4px] "} label_className={"text-[11px]"} labelName={"TÉLEPHONE"} errorMessage={"votre téléphone est réquis"} required={true} isLoading={isLoading} onChange={(e) => setEmptycvData({ ...emptycvData, prename: e.target.value || "télephone" })} />
-                                        <Input register={register} errors={errors} type={"email"} placeholder={"alicelonzi@gmail.com"}  id={"email"} htmlFor={"email"} className={"py-[7px] placeholder:text-[15px] mt-[4px] "} label_className={"text-[11px]"} errorMessage={"votre email est réquis"} labelName={"ADRESSE EMAIL"} required={true} isLoading={isLoading} onChange={(e) => setEmptycvData({ ...emptycvData, prename: e.target.value || "EmailL" })} />
+                                        <Input register={register} errors={errors} type={"number"} placeholder={"40456789"} id={"telephone"} htmlFor={"telephone"} className={"py-[7px] placeholder:text-[15px] mt-[4px] "} label_className={"text-[11px]"} labelName={"TÉLEPHONE"} errorMessage={"votre téléphone est réquis"} required={true} isLoading={isLoading} onChange={(e) => setEmptycvData({ ...emptycvData, contact: emptycvData.contact.map((c, index) =>
+                                        index === 0 
+                                            ? { ...c, infos : e.target.value || "téléphone"  } 
+                                            : c 
+                                        ) })} />
+
+                                        <Input register={register} errors={errors} type={"email"} placeholder={"alicelonzi@gmail.com"}  id={"email"} htmlFor={"email"} className={"py-[7px] placeholder:text-[15px] mt-[4px] "} label_className={"text-[11px]"} errorMessage={"votre email est réquis"} labelName={"ADRESSE EMAIL"} required={true} isLoading={isLoading} onChange={(e) => setEmptycvData({ ...emptycvData, contact: emptycvData.contact.map((c, index) =>
+                                        index === 1 
+                                            ? { ...c, infos : e.target.value || "email"  } 
+                                            : c 
+                                        )})} />
 
                                     </div>
                                 </div>

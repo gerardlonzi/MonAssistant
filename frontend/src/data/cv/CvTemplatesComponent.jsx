@@ -317,11 +317,11 @@ export function Template002({
           {
   myCvData.contact?.map((el, index) => (
     <div key={index}>
-      <span>
-        {typeof el.infos === 'object' && el.infos !== null
-          ? `${el.infos.ville}, ${el.infos.pays}`
-          : el?.infos}
-      </span>
+      {
+          typeof el.infos === 'object' && el.infos !== null
+            ? <span>{el.infos.ville}, {el.infos.pays}</span> 
+            : <span>{el?.infos}</span> 
+        }
     </div>
   ))
 }

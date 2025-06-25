@@ -43,7 +43,7 @@ export function Template001({
       padding: 'px-4 py-6',
       image: 'w-22 h-22 mb-2',
       margin_Side: "mt-4 mb-1",
-      contactSpaceX: "space-y-[7px]",
+      contactSpaceX: "space-y-[2px]",
       contactContentGap: "gap-2 items-center",
       ul_ps: "ps-[10px]",
       iconSize: "w-2 h-2"
@@ -97,6 +97,14 @@ export function Template001({
         }
       </div>
     );
+  })
+}
+{
+  myCvData.supp_Contact.map((el, index) => {
+      <div key={index} className={`flex ${styles.contactContentGap}`}>
+        <span className={`text-blue-400 ${styles.iconSize}`}>{el?.icon}</span>
+        <span>{el?.infos}</span> 
+      </div>
   })
 }
           </div>
@@ -282,8 +290,8 @@ export function Template002({
       text__title_second_rightSide: " text-[9px] mt-[4px]  gap-[3px]",
       circle__title_second_rightSide: "size-[5px] bg-[#08084d] rounded-full",
       text_date: "text-[7px] uppercase mt-[2px]",
-      text_name: "text-[25px] text-[#08084d]",
-      text_profession: "text-[15px]  text-[#08084d]",
+      text_name: "text-[25px] text-[#08084d] my-[0px]",
+      text_profession: "text-[15px]  text-[#08084d] ",
       padding_right_side: 'pt-[30px] px-[15px]',
       margin_content_under_title: "mt-[2px] ",
       margin_content_under_title_second: "mt-[4px]",

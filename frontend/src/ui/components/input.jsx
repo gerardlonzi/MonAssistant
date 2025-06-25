@@ -8,7 +8,6 @@ import Boolean from '../../../hooks/boolean'
 export default function Input({ register, errors, type, placeholder, id, htmlFor, labelName, errorMessage, required, isLoading,onChange,className,label_className}) {
 
   const { value: EyeOn, setValue: setIsEyeON,Toogle:ChangeEyeType } = Boolean({ values: false })
-console.log(onChange);
 
   return (
     type == "password" ?

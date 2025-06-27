@@ -174,32 +174,38 @@ export const EmptycvData = {
 
   supp_Contact: [
     {
+      id:uuidv4(),
       icon: "",
       name: "Åge / date de naissance",
       infos: ""
     },
     {
+      id:uuidv4(),
       icon: "",
       name: "Permis de conduire / Véhiculé",
       infos: ""
     },
     {
+      id:uuidv4(),
       icon: "",
       name: "Nationalité",
       infos: ""
     }
     ,
     {
+      id:uuidv4(),
       icon: "",
       name: "Situation familiale",
       infos: ""
     },
     {
+      id:uuidv4(),
       icon: "",
       name: "Linkledin / Autre site",
-      infos: ""
+      infos: <a href=""></a>
     },
     {
+      id:uuidv4(),
       icon: "",
       name: "Disponibilité / Mobilité",
       infos: ""

@@ -237,13 +237,11 @@ export function Template002({
       root: 'w-[15rem] h-[21rem] overflow-hidden',
       text: 'text-[5px]',
       text_title: " text-[7px] mt-[6px] font-bold ",
-      text_content_ul: "list-disc ml-2",
       text_under_title_leftSide: "mt-[2px] space-y-[1.5px] text-gray-300",
       padding_left_side: 'px-2 py-2',
       image: 'w-16 h-16 mb-[9px]',
       hr_marge: "mt-2",
       width_left_side: "w-[7rem]",
-
       text__title_second_rightSide: " text-[7px] mt-[2px]  gap-[3px]",
       circle__title_second_rightSide: "size-[5px] bg-[#08084d] rounded-full",
       text_date: "text-[5px] uppercase mt-[1px]",
@@ -252,19 +250,19 @@ export function Template002({
       padding_right_side: 'pt-[20px] px-[10px]',
       margin_content_under_title: "mt-[1px] ",
       margin_content_under_title_second: "mt-[2px]",
+      circle__title_ul:"w-[1.2px] h-[1.2px] p-[1.2px] rounded-full  mt-[2px]",
+      iconSize: "w-[0.3rem] h-[0.3rem]"
+
     },
     md: {
       root: 'w-[20rem] h-[28rem] ',
       text: 'text-[6px]',
       text_title: " text-[8px] mt-[7px] font-bold ",
-      text_content_ul: "list-disc ml-2",
       text_under_title_leftSide: "mt-[7px] space-y-[1.5px] text-gray-300",
       padding_left_side: 'px-3 py-3',
       image: 'w-20 h-20 mb-[9px]',
       hr_marge: "mt-2",
       width_left_side: "w-[8rem]",
-
-
       text__title_second_rightSide: " text-[8px] mt-[3px]  gap-[3px]",
       circle__title_second_rightSide: "size-[5px] bg-[#08084d] rounded-full",
       text_date: "text-[5px] uppercase mt-[1px]",
@@ -273,20 +271,18 @@ export function Template002({
       padding_right_side: 'pt-[25px] px-[12px]',
       margin_content_under_title: "mt-[1px] ",
       margin_content_under_title_second: "mt-[3px]",
+      iconSize: "w-[0.4rem] h-[0.4rem]"
 
     },
     lg: {
       root: 'w-[25rem] h-[34rem] ',
       text: 'text-[8px]',
       text_title: " text-[10px] mt-[8px] font-bold ",
-      text_content_ul: "list-disc ml-2",
       text_under_title_leftSide: "mt-[10px] space-y-[1.5px] text-gray-300",
       padding_left_side: 'px-4 py-4',
       image: 'w-[6.5rem] h-[6.5rem] mb-[9px]',
       hr_marge: "mt-[10px]",
       width_left_side: "w-[12rem]",
-
-
       text__title_second_rightSide: " text-[9px] mt-[4px]  gap-[3px]",
       circle__title_second_rightSide: "size-[5px] bg-[#08084d] rounded-full",
       text_date: "text-[7px] uppercase mt-[2px]",
@@ -295,6 +291,10 @@ export function Template002({
       padding_right_side: 'pt-[30px] px-[15px]',
       margin_content_under_title: "mt-[2px] ",
       margin_content_under_title_second: "mt-[4px]",
+      circle__title_ul:"w-[1.5px] h-[1.5px] p-[1.5px] rounded-full  mt-[4px]",
+      iconSize: "w-[0.5rem] h-[0.5rem]"
+
+
     },
     xl: {
 
@@ -324,12 +324,13 @@ export function Template002({
           <div className={` ${styles.text_under_title_leftSide}`}>
           {
   myCvData.contact?.map((el, index) => (
-    <div key={index}>
+    <div key={index} className="flex items-start gap-[5%] mb-[2%]">
+      <span className={`${styles.iconSize} mt-[1.5px]`}>{el?.icon}</span>
       {
           typeof el.infos === 'object' && el.infos !== null
-            ? <span>{el.infos.ville}, {el.infos.pays}</span> 
+            ? <span>{el.infos.ville} {el.infos.pays}</span> 
             : <span>{el?.infos}</span> 
-        }
+      }
     </div>
   ))
 }
@@ -338,24 +339,34 @@ export function Template002({
         <hr className={`${styles.hr_marge}`} />
         <section>
           <p className={`${styles.text_title}`}>COMPÉTENCES</p>
-          <ul className={`${styles.text_content_ul} ${styles.text_under_title_leftSide}`}>
+          <div className={` ${styles.text_under_title_leftSide}`}>
             
             {
-              myCvData.compétences?.map((el, index) =>
-                <li key={index}>{el}</li>
-              )
+              myCvData.compétences.length > 0 ? myCvData.compétences.map((el, index) =>
+                <div className="flex gap-[2px]  ml-[3px]" key={index}>
+                  <div className={`${styles.circle__title_ul} bg-white`}></div>
+                  <p >{el}</p>
+               </div>
+              ) : <div className="space-y-[8px]  ml-[3px]" >
+                    <div className={`${styles.circle__title_ul} bg-white`}></div>
+                    <div className={`${styles.circle__title_ul} bg-white`}></div>
+                    <div className={`${styles.circle__title_ul} bg-white`}></div>
+                  </div>
               
             }
-          </ul>
+          </div>
         </section>
         <hr className={`${styles.hr_marge}`} />
         <section>
           <p className={` ${styles.text_title}`}>LANGUE(S)</p>
           <div className={` ${styles.text_under_title_leftSide}`}>
             {
-              myCvData.languages?.map((el, index) =>
+              myCvData.languages.length > 0 ? myCvData.languages.map((el, index) =>
                 <p key={index}>{el}</p>
-              )
+              ) : <div className="space-y-[8px]  ml-[3px]" >
+              <div className={`${styles.circle__title_ul} bg-white`}></div>
+              <div className={`${styles.circle__title_ul} bg-white`}></div>
+            </div>
             }
           </div>
         </section>
@@ -364,9 +375,12 @@ export function Template002({
           <p className={` ${styles.text_title}`}>INTERÊTS</p>
           <div className={` ${styles.text_under_title_leftSide}`}>
             {
-              myCvData.hobbies?.map((el, index) =>
+             myCvData.hobbies.length >0 ? myCvData.hobbies?.map((el, index) =>
                 <p key={index}>{el}</p>
-              )
+              ) :  <div className="space-y-[8px]  ml-[3px]" >
+              <div className={`${styles.circle__title_ul} bg-white`}></div>
+              <div className={`${styles.circle__title_ul} bg-white`}></div>
+            </div>
             }
           </div>
         </section>
@@ -385,11 +399,15 @@ export function Template002({
               <div className={`font-bold  flex items-center ${styles.text__title_second_rightSide}`}><div style={{ backgroundColor: hoverPalette || activeColor }} className={`${styles.circle__title_second_rightSide} `}></div>{el?.poste || el?.lieux && <span>{el?.poste} á {el?.lieux} </span>} </div>
               <div className={`flex justify-between flex-col ${styles.margin_content_under_title_second}`}>
                 <p className={`${styles.text_date}`}>{el?.debut || el?.fin && <> <span>{el?.debut}</span> - <span>{el?.fin}</span> </>}</p>
-                <ul className={`${styles.text_content_ul} ${styles.margin_content_under_title}`}>
+                <div className={` ${styles.margin_content_under_title}`}>
                   {
-                    el?.Activites.map((i, n) => <li key={n}>{i}</li>)
+                    el?.Activites.map((i, n) => 
+                    <div key={n} className="flex gap-[2px] ml-[3px]">
+                      <div  className={`${styles.circle__title_ul} bg-black`}></div>
+                      <p>{i}</p>
+                    </div> )
                   }
-                </ul>
+                </div>
               </div>
             </div>
           )}

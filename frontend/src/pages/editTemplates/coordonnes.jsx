@@ -51,10 +51,11 @@ export default function Coordonnees({ getCurrenStep, Next, Prev, IsFirstStep, Is
 
 console.log(supp_infos);
 
-const add_infos_suppl=(id)=>{
- return setSupp_infos(...supp_infos,id)
-}
-
+const add_infos_suppl = (id) => {
+    if (!supp_infos.includes(id)) {
+      setSupp_infos([...supp_infos, id]);
+    }
+  };
 
 
 
@@ -138,6 +139,20 @@ const add_infos_suppl=(id)=>{
                                             )
                                         })} />
 
+                                    </div>
+                                    <div className="grid grid-cols-2 gap-8">
+                                        {
+                                            emptycvData.supp_Contact.map(el=>
+                                                supp_infos.includes(el.id) && <div key={el.id} className="relative">
+<Input register={register} errors={errors} type={"text"} placeholder={el.placeholder} id={el.htmlfor} htmlFor={el.htmlfor} className={"py-[7px] placeholder:text-[15px] mt-[4px] "} label_className={"text-[11px]"} labelName={el.name} required={false} isLoading={isLoading} onChange={(e) => setEmptycvData({ ...emptycvData, supp_Contact: emptycvData.supp_Contact.map((c) =>
+                                                    c.id === el.id
+                                                        ? { ...c, infos: e.target.value }
+                                                        : c
+                                                ) })} />
+                                                </div> 
+                                                  
+                                            )
+                                        }
                                     </div>
                                 </div>
                                 <div className="mt-10 px-9">

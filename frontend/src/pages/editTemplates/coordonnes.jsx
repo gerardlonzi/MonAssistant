@@ -5,6 +5,7 @@ import { EmptycvData } from "../../data/cv/cvInfos";
 import { Upload, Plus } from "lucide-react";
 import { useForm } from "react-hook-form"
 import Boolean from '../../../hooks/boolean'
+import { X } from "lucide-react"
 
 import Input from "../../ui/components/input";
 
@@ -49,13 +50,23 @@ export default function Coordonnees({ getCurrenStep, Next, Prev, IsFirstStep, Is
 
     }
 
-console.log(supp_infos);
+    console.log(supp_infos);
 
-const add_infos_suppl = (id) => {
-    if (!supp_infos.includes(id)) {
-      setSupp_infos([...supp_infos, id]);
-    }
-  };
+    const add_infos_suppl = (id) => {
+        if (!supp_infos.includes(id)) {
+            setSupp_infos([...supp_infos, id]);
+        }
+    };
+    const Delete_infos_input = (id) => {
+        if (supp_infos.includes(id)) {
+            setEmptycvData({...emptycvData,supp_Contact:emptycvData.supp_Contact.map((c) =>
+                c.id === id
+                    ? { ...c, infos: "" }
+                    : c
+            )})
+            setSupp_infos(supp_infos.filter(el => el !== id));
+        }
+    };
 
 
 
@@ -83,25 +94,28 @@ const add_infos_suppl = (id) => {
                                             <input className="" id="select_picture" type="file" accept="image/*" onChange={handleTakeImage} hidden />
                                         </div>
                                     </div>
-                                    <Input register={register} errors={errors} type={"text"} placeholder={"Comptable"} id={"profession"} htmlFor={"profession"} className={"py-[7px] placeholder:text-[15px] mt-[4px] "} label_className={"text-[11px]"} labelName={"Profession"} required={false} isLoading={isLoading} onChange={(e) => setEmptycvData({ 
-                                            ...emptycvData, profession: e.target.value || "Profession"})} />
+                                    <Input register={register} errors={errors} type={"text"} placeholder={"Comptable"} id={"profession"} htmlFor={"profession"} className={"py-[7px] placeholder:text-[15px] mt-[4px] "} label_className={"text-[11px]"} labelName={"Profession"} required={false} isLoading={isLoading} onChange={(e) => setEmptycvData({
+                                        ...emptycvData, profession: e.target.value || "Profession"
+                                    })} />
 
-                                   
+
                                 </div>
                                 <input type="text" onChange={(e) => setEmptycvData({ ...emptycvData, prename: e.target.value || "Prenom" })} />
                                 <div className="space-y-6 px-9">
                                     <div className="flex gap-8">
                                         <Input register={register} errors={errors} type={"text"} placeholder={"Lonzi"} id={"nom"} htmlFor={"nom"} className={"py-[7px] placeholder:text-[15px] mt-[4px] "} label_className={"text-[11px]"} labelName={"Nom"} errorMessage={"votre nom est réquis"} required={true} isLoading={isLoading} onChange={(e) => setEmptycvData({ ...emptycvData, name: e.target.value || "Nom" })} />
 
-                                        
+
                                         <Input register={register} errors={errors} type={"text"} placeholder={"Alice"} id={"prenom"} htmlFor={"prenom"} className={"py-[7px] placeholder:text-[15px] mt-[4px] "} label_className={"text-[11px]"} labelName={"PRENOM"} required={true} isLoading={isLoading} errorMessage={"votre prenom est réquis"} onChange={(e) => setEmptycvData({ ...emptycvData, prename: e.target.value || "Prenom" })} />
                                     </div>
                                     <div>
-                                        <Input register={register} errors={errors} type={"text"} placeholder={"Mendong Simbock,Rt 67"} id={"adresse_postale"} htmlFor={"adresse_postale"} className={"py-[7px] placeholder:text-[15px] mt-[4px] "} label_className={"text-[11px]"} labelName={"Adresse Postale (FACULTATIF)"} required={false} isLoading={isLoading} onChange={(e) => setEmptycvData({ ...emptycvData, contact: emptycvData.contact.map((c, index) =>
+                                        <Input register={register} errors={errors} type={"text"} placeholder={"Mendong Simbock,Rt 67"} id={"adresse_postale"} htmlFor={"adresse_postale"} className={"py-[7px] placeholder:text-[15px] mt-[4px] "} label_className={"text-[11px]"} labelName={"Adresse Postale (FACULTATIF)"} required={false} isLoading={isLoading} onChange={(e) => setEmptycvData({
+                                            ...emptycvData, contact: emptycvData.contact.map((c, index) =>
                                                 index === 3
                                                     ? { ...c, infos: e.target.value || "Addresse postale" }
                                                     : c
-                                            ) })} />
+                                            )
+                                        })} />
                                     </div>
                                     <div className="flex gap-8">
                                         <Input register={register} errors={errors} type={"text"} placeholder={"france"} id={"pays"} htmlFor={"pays"} className={"py-[7px] placeholder:text-[15px] mt-[4px] "} label_className={"text-[11px]"} labelName={"Pays / Region"} errorMessage={"votre pays est réquis"} required={true} isLoading={isLoading} onChange={(e) => setEmptycvData({
@@ -142,15 +156,22 @@ const add_infos_suppl = (id) => {
                                     </div>
                                     <div className="grid grid-cols-2 gap-8">
                                         {
-                                            emptycvData.supp_Contact.map(el=>
-                                                supp_infos.includes(el.id) && <div key={el.id} className="relative">
-<Input register={register} errors={errors} type={"text"} placeholder={el.placeholder} id={el.htmlfor} htmlFor={el.htmlfor} className={"py-[7px] placeholder:text-[15px] mt-[4px] "} label_className={"text-[11px]"} labelName={el.name} required={false} isLoading={isLoading} onChange={(e) => setEmptycvData({ ...emptycvData, supp_Contact: emptycvData.supp_Contact.map((c) =>
-                                                    c.id === el.id
-                                                        ? { ...c, infos: e.target.value }
-                                                        : c
-                                                ) })} />
-                                                </div> 
-                                                  
+                                            emptycvData.supp_Contact.map(el =>
+                                                supp_infos.includes(el.id) && <div key={el.id} className="relative isStud">
+
+                                                    <Input register={register} errors={errors} type={"text"} placeholder={el.placeholder} id={el.htmlfor} htmlFor={el.htmlfor} className={"py-[7px] placeholder:text-[15px] mt-[4px] "} label_className={"text-[11px]"} labelName={el.name} required={false} isLoading={isLoading} onChange={(e) => setEmptycvData({
+                                                        ...emptycvData, supp_Contact: emptycvData.supp_Contact.map((c) =>
+                                                            c.id === el.id
+                                                                ? { ...c, infos: e.target.value }
+                                                                : c
+                                                        )
+                                                    })} />
+                                                    <div onClick={() => Delete_infos_input(el.id)} className="absolute rounded-full -right-2 p-1 bg-red-500 top-3 cursor-pointer">
+                                                        <X className="w-3 h-3 text-white" />
+
+                                                    </div>
+                                                </div>
+
                                             )
                                         }
                                     </div>
@@ -159,7 +180,7 @@ const add_infos_suppl = (id) => {
                                     <p className="text-sm font-semibold">INFORMATIONS SUPPLEMENTAIRE</p>
                                     <div className="mt-3 flex flex-wrap  gap-3">
                                         {
-                                            EmptycvData.supp_Contact.map(el=> <p key={el.id} onClick={()=>add_infos_suppl(el.id)
+                                            EmptycvData.supp_Contact.map(el => <p key={el.id} onClick={() => add_infos_suppl(el.id)
                                             } className="text-[15px]  hover:bg-[#007aff] bg-[#f8f8f8] hover:text-white group px-5 py-[6px] border border-gray-200 transition-all cursor-pointer flex items-center">{el.name}<Plus className="w-4 text-gray-400 ml-2 group-hover:text-white" /></p>)
                                         }
                                     </div>

@@ -81,7 +81,7 @@ export const cvData = {
       icon: "",
       htmlfor:"site",
       name: "Linkledin / Autre site",
-      infos: <a href=""></a>,
+      infos: "",
       placeholder:"https://linkdin/alice.com"
 
     },
@@ -232,7 +232,7 @@ export const EmptycvData = {
       icon: "",
       htmlfor:"site",
       name: "Linkledin / Autre site",
-      infos: <a href=""></a>,
+      infos: "",
       placeholder:"https://linkdin/alice.com"
 
     },

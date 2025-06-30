@@ -65,14 +65,14 @@ export function Template001({
           <div className={`${styles.image} m-auto bg-gray-300 rounded-full border-2 border-white overflow-hidden`}>
             {
               myCvData.img && <img
-              className="   w-full h-full object-cover"
-              src={myCvData.img}
-              alt="profile"
-              loading="lazy"
-            />
+                className="   w-full h-full object-cover"
+                src={myCvData.img}
+                alt="profile"
+                loading="lazy"
+              />
 
             }
-            
+
           </div>
         )}
         <div className="text-center">
@@ -84,29 +84,29 @@ export function Template001({
         <section>
           <p className={`font-bold ${styles.text_title} ${styles.margin_Side}`}>CONTACT</p>
           <div className={`${styles.contactSpaceX} `}>
-           
-          {
-  myCvData.contact?.map((el, index) => {
-    return (
-      <div key={index} className={`flex ${styles.contactContentGap}`}>
-        <span className={`text-blue-400 ${styles.iconSize}`}>{el?.icon}</span>
-        {
-          typeof el.infos === 'object' && el.infos !== null
-            ? <span>{el.infos.ville} {el.infos.pays}</span> 
-            : <span>{el?.infos}</span> 
-        }
-      </div>
-    );
-  })
-}
-{
-  myCvData.supp_Contact.map((el, index) => {
-      <div key={index} className={`flex ${styles.contactContentGap}`}>
-        <span className={`text-blue-400 ${styles.iconSize}`}>{el?.icon}</span>
-        <span>{el?.infos}</span> 
-      </div>
-  })
-}
+
+            {
+              myCvData.contact?.map((el, index) => {
+                return (
+                  <div key={index} className={`flex ${styles.contactContentGap}`}>
+                    <span className={`text-blue-400 ${styles.iconSize}`}>{el?.icon}</span>
+                    {
+                      typeof el.infos === 'object' && el.infos !== null
+                        ? <span>{el.infos.ville} {el.infos.pays}</span>
+                        : <span>{el?.infos}</span>
+                    }
+                  </div>
+                );
+              })
+            }
+            {
+              myCvData.supp_Contact?.map((el, index) =>  el.infos && (
+                <div key={index} className={`flex ${styles.contactContentGap}`}>
+                  <span className={`text-blue-400 ${styles.iconSize}`}>{el?.icon}</span>
+                  <span>{el?.infos}</span>
+                </div>
+              ))
+            }
           </div>
         </section>
 
@@ -187,7 +187,7 @@ export function Template001({
                 {
                   el.ecole || el.lieux && <>{el.ecole} in {el.lieux}</>
                 }
-                
+
               </p>
             </div>
           ))}
@@ -208,7 +208,7 @@ export function Template001({
                 {
                   el.ecole || el.lieux && <>{el.ecole} in {el.lieux}</>
                 }
-                
+
               </p>
             </div>
           ))}
@@ -250,7 +250,7 @@ export function Template002({
       padding_right_side: 'pt-[20px] px-[10px]',
       margin_content_under_title: "mt-[1px] ",
       margin_content_under_title_second: "mt-[2px]",
-      circle__title_ul:"w-[1.2px] h-[1.2px] p-[1.2px] rounded-full  mt-[2px]",
+      circle__title_ul: "w-[1.2px] h-[1.2px] p-[1.2px] rounded-full  mt-[2px]",
       iconSize: "w-[0.3rem] h-[0.3rem]"
 
     },
@@ -291,7 +291,7 @@ export function Template002({
       padding_right_side: 'pt-[30px] px-[15px]',
       margin_content_under_title: "mt-[2px] ",
       margin_content_under_title_second: "mt-[4px]",
-      circle__title_ul:"w-[1.5px] h-[1.5px] p-[1.5px] rounded-full  mt-[4px]",
+      circle__title_ul: "w-[1.5px] h-[1.5px] p-[1.5px] rounded-full  mt-[4px]",
       iconSize: "w-[0.5rem] h-[0.5rem]"
 
 
@@ -322,37 +322,47 @@ export function Template002({
         <section>
           <p className={` ${styles.text_title}`}>INFORMATIONS</p>
           <div className={` ${styles.text_under_title_leftSide}`}>
-          {
-  myCvData.contact?.map((el, index) => (
-    <div key={index} className="flex items-start gap-[5%] mb-[2%]">
-      <span className={`${styles.iconSize} mt-[1.5px]`}>{el?.icon}</span>
-      {
-          typeof el.infos === 'object' && el.infos !== null
-            ? <span>{el.infos.ville} {el.infos.pays}</span> 
-            : <span>{el?.infos}</span> 
-      }
-    </div>
-  ))
-}
+            {
+              myCvData.contact?.map((el, index) => (
+                <div key={index} className="flex items-start gap-[5%] mb-[2%]">
+                  <span className={`${styles.iconSize} mt-[1.5px]`}>{el?.icon}</span>
+                  {
+                    typeof el.infos === 'object' && el.infos !== null
+                      ? <span>{el.infos.ville} {el.infos.pays}</span>
+                      : <span>{el?.infos}</span>
+                  }
+                </div>
+              ))
+            }
+
+            {
+              myCvData.supp_Contact?.map((el, index) => el.infos && (
+                <div key={index} className="flex items-start gap-[5%] mb-[2%]">
+                  <span className={` ${styles.iconSize}`}>{el?.icon}</span>
+                  <span>{el?.infos}</span>
+                </div>
+              ))
+            }
+
           </div>
         </section>
         <hr className={`${styles.hr_marge}`} />
         <section>
           <p className={`${styles.text_title}`}>COMPÉTENCES</p>
           <div className={` ${styles.text_under_title_leftSide}`}>
-            
+
             {
               myCvData.compétences.length > 0 ? myCvData.compétences.map((el, index) =>
                 <div className="flex gap-[2px]  ml-[3px]" key={index}>
                   <div className={`${styles.circle__title_ul} bg-white`}></div>
                   <p >{el}</p>
-               </div>
+                </div>
               ) : <div className="space-y-[8px]  ml-[3px]" >
-                    <div className={`${styles.circle__title_ul} bg-white`}></div>
-                    <div className={`${styles.circle__title_ul} bg-white`}></div>
-                    <div className={`${styles.circle__title_ul} bg-white`}></div>
-                  </div>
-              
+                <div className={`${styles.circle__title_ul} bg-white`}></div>
+                <div className={`${styles.circle__title_ul} bg-white`}></div>
+                <div className={`${styles.circle__title_ul} bg-white`}></div>
+              </div>
+
             }
           </div>
         </section>
@@ -364,9 +374,9 @@ export function Template002({
               myCvData.languages.length > 0 ? myCvData.languages.map((el, index) =>
                 <p key={index}>{el}</p>
               ) : <div className="space-y-[8px]  ml-[3px]" >
-              <div className={`${styles.circle__title_ul} bg-white`}></div>
-              <div className={`${styles.circle__title_ul} bg-white`}></div>
-            </div>
+                <div className={`${styles.circle__title_ul} bg-white`}></div>
+                <div className={`${styles.circle__title_ul} bg-white`}></div>
+              </div>
             }
           </div>
         </section>
@@ -375,12 +385,12 @@ export function Template002({
           <p className={` ${styles.text_title}`}>INTERÊTS</p>
           <div className={` ${styles.text_under_title_leftSide}`}>
             {
-             myCvData.hobbies.length >0 ? myCvData.hobbies?.map((el, index) =>
+              myCvData.hobbies.length > 0 ? myCvData.hobbies?.map((el, index) =>
                 <p key={index}>{el}</p>
-              ) :  <div className="space-y-[8px]  ml-[3px]" >
-              <div className={`${styles.circle__title_ul} bg-white`}></div>
-              <div className={`${styles.circle__title_ul} bg-white`}></div>
-            </div>
+              ) : <div className="space-y-[8px]  ml-[3px]" >
+                <div className={`${styles.circle__title_ul} bg-white`}></div>
+                <div className={`${styles.circle__title_ul} bg-white`}></div>
+              </div>
             }
           </div>
         </section>
@@ -401,11 +411,11 @@ export function Template002({
                 <p className={`${styles.text_date}`}>{el?.debut || el?.fin && <> <span>{el?.debut}</span> - <span>{el?.fin}</span> </>}</p>
                 <div className={` ${styles.margin_content_under_title}`}>
                   {
-                    el?.Activites.map((i, n) => 
-                    <div key={n} className="flex gap-[2px] ml-[3px]">
-                      <div  className={`${styles.circle__title_ul} bg-black`}></div>
-                      <p>{i}</p>
-                    </div> )
+                    el?.Activites.map((i, n) =>
+                      <div key={n} className="flex gap-[2px] ml-[3px]">
+                        <div className={`${styles.circle__title_ul} bg-black`}></div>
+                        <p>{i}</p>
+                      </div>)
                   }
                 </div>
               </div>

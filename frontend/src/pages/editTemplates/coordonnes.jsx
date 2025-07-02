@@ -68,7 +68,7 @@ export default function Coordonnees({ getCurrenStep, Next, Prev, IsFirstStep, Is
         }
     };
 
-
+//a revoir 
 
     return (
         <section className="">

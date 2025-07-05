@@ -1,6 +1,7 @@
 import React from 'react'
 import { LoaderCircle } from 'lucide-react'
 import { Link } from 'react-router-dom';
+import {clsx} from "clsx"
 
 export default function LinkComponent({variant,to,content,className,onClick}) {
     let link;
